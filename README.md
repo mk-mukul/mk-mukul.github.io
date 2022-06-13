@@ -1,3 +1,3 @@
 # Portfolio Website
 
-[Website](https://mk-mukul.github.io/mukul/)
+[Website](https://mk-mukul.github.io/)
