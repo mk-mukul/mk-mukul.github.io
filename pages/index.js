@@ -5,15 +5,15 @@ import website_alpha from "../assets/images/website_alpha.png"
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 
-export default function Home({ bgColor, bgColor2, textColor }) {
+export default function Home() {
   return (
     <>
-      <div id="content" className={`bg-[${bgColor}] text-[${textColor}]`}>
+      <div id="content" className={`bg-bgPrimary text-textPrimary`}>
         <main className="px-[150px] mx-auto max-w-[1600px] w-full min-h-screen">
 
           <section className="min-h-screen flex flex-col justify-center items-start max-w-[1100px] mx-auto">
             <div>
-              <h1>Hi, My name is</h1>
+              <h1 className=" font-mono">Hi, My name is</h1>
             </div>
             <div className=" pt-5">
               <h2 className="font text-7xl font-bold">Mukul Raj.</h2>
@@ -32,25 +32,25 @@ export default function Home({ bgColor, bgColor2, textColor }) {
             <div className="flex w-full pb-10">
               <h1></h1>
               <h1 className="text-3xl font-bold">01. About Me</h1>
-              <div className={`ml-6 w-[200px] h-[1px] self-center bg-[${textColor}]`}></div>
+              <div className={`ml-6 w-[200px] h-[1px] self-center bg-textPrimary`}></div>
             </div>
             <div className="grid grid-cols-2 gap-[50px] w-full" style={{ gridTemplateColumns: "3fr 2fr" }}>
               <div>
                 <ul>
                   <li className="relative">
-                    <Dot textColor={textColor} />
+                    <Dot />
                     <p className=" pl-4">
                       I&apos;m an Indian
                     </p>
                   </li>
                   <li className="relative">
-                    <Dot textColor={textColor} />
+                    <Dot />
                     <p className=" pl-4">
                       Most used line of code <i className="rounded-sm px-1 py-0.5 opacity-75">git commit -m &quot;Initial Commit&quot;</i>
                     </p>
                   </li>
                   <li className="relative">
-                    <Dot textColor={textColor} />
+                    <Dot />
                     <p className=" pl-4">
                       Fun fact: I love pizza
                     </p>
@@ -71,13 +71,13 @@ export default function Home({ bgColor, bgColor2, textColor }) {
             <div className="flex w-full pb-10">
               <h2></h2>
               <h1 className="text-3xl font-bold">02. Some Projects I&apos;ve Built</h1>
-              <div className={`ml-6 w-[200px] h-[1px] self-center bg-[${textColor}]`}></div>
+              <div className={`ml-6 w-[200px] h-[1px] self-center bg-textPrimary`}></div>
             </div>
             <div className="flex gap-[50px] w-full">
               <div className=" flex-1 z-10">
                 <div className=" flex flex-col w-[141%] top">
                   <h2 className=" text-2xl font-bold">ALPHA Chat</h2>
-                  <div className={`bg-[${bgColor2}] rounded-sm px-6 py-4 my-5`}>
+                  <div className={`bg-bgSecondary rounded-sm px-6 py-4 my-5`}>
                     <p>
                       A web app for real time texting. Make an account, add friends in your friend list, and start chatting with your friends on this platform.
                       <br />
@@ -110,9 +110,9 @@ export default function Home({ bgColor, bgColor2, textColor }) {
 
           <section id="contact" className="mx-auto py-[100px] flex flex-col justify-center items-start max-w-[1000px]">
             <div className="flex justify-center w-full pb-10">
-              <div className={`mx-6 w-[100px] h-[1px] self-center bg-[${textColor}]`}></div>
+              <div className={`mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}></div>
               <h1 className="text-5xl font-bold">03. Get In Touch</h1>
-              <div className={`mx-6 w-[100px] h-[1px] self-center bg-[${textColor}]`}></div>
+              <div className={`mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}></div>
             </div>
             <div className="flex justify-center w-full">
               <a href="mailto:mukul.raj@iitgn.ac.in" target="_blank" rel="noopener noreferrer">
@@ -128,8 +128,8 @@ export default function Home({ bgColor, bgColor2, textColor }) {
   );
 }
 
-const Dot = ({ textColor }) => {
+const Dot = () => {
   return (
-    <div className={`absolute top-2 bg-[${textColor}] w-2 h-2 rounded-full`}></div>
+    <div className={`absolute top-2 bg-textPrimary w-2 h-2 rounded-full`}></div>
   )
 }

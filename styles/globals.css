@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.firefly {
+    --bgPrimary: theme(colors.firefly.bgPrimary);
+    --bgSecondary: theme(colors.firefly.bgSecondary);
+    --textPrimary: theme(colors.firefly.textPrimary);
+}
+.blueNight {
+    --bgPrimary: theme(colors.blueNight.bgPrimary);
+    --bgSecondary: theme(colors.blueNight.bgSecondary);
+    --textPrimary: theme(colors.blueNight.textPrimary);
+}
+.redPear {
+    --bgPrimary: theme(colors.redPear.bgPrimary);
+    --bgSecondary: theme(colors.redPear.bgSecondary);
+    --textPrimary: theme(colors.redPear.textPrimary);
+}
+.lynxWhite {
+    --bgPrimary: theme(colors.lynxWhite.bgPrimary);
+    --bgSecondary: theme(colors.lynxWhite.bgSecondary);
+    --textPrimary: theme(colors.lynxWhite.textPrimary);
+}
+.milkyWay {
+    --bgPrimary: theme(colors.milkyWay.bgPrimary);
+    --bgSecondary: theme(colors.milkyWay.bgSecondary);
+    --textPrimary: theme(colors.milkyWay.textPrimary);
+}
+
