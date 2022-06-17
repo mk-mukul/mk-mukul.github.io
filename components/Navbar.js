@@ -19,7 +19,7 @@ const Navbar = ({ themes, theme, setTheme }) => {
         <title>Mukul</title>
     </Head> */}
       <header
-        className={`font-mono bg-bgPrimary text-textPrimary z-50 opacity-95 px-12 fixed w-full shadow-md top-0`}
+        className={`font-mono bg-bgPrimary text-textPrimary z-50 opacity-95 px-12 fixed w-full top-0 shadow-md`}
       >
         <nav className="nav py-4 flex justify-between items-center">
           <div>

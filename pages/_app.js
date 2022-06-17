@@ -34,11 +34,9 @@ function MyApp({ Component, pageProps }) {
     "MongoDB",
     "Expressjs",
     "React",
-    "Node.js",
     "Next.js",
     "React Native",
-    "Tailwind CSS",
-    "Linux",
+    "TailwindCSS",
     "Arduino",
     "IOT",
   ];

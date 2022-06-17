@@ -3,16 +3,20 @@ import Link from "next/link";
 import mukul from "../assets/images/mukul.jpeg";
 import website_alpha from "../assets/images/website_alpha.png";
 import { FiGithub, FiExternalLink, FiChevronRight } from "react-icons/fi";
+import Button from "../components/Button";
+import ParaLink from "../components/ParaLink";
 
 export default function Home({ skills, theme, themes, setTheme }) {
   const changeTheme = () => {
     for (let i = 0; i < themes.length; i++) {
       const code = themes[i].code;
       if (code == theme) {
-        (i >= themes.length - 1) ? setTheme(themes[0].code) : setTheme(themes[i + 1].code);
+        i >= themes.length - 1
+          ? setTheme(themes[0].code)
+          : setTheme(themes[i + 1].code);
       }
     }
-  }
+  };
   return (
     <>
       <div id="content" className={`bg-bgPrimary text-textPrimary`}>
@@ -32,17 +36,21 @@ export default function Home({ skills, theme, themes, setTheme }) {
             <div className="max-w-lg pt-6">
               <p>
                 I&apos;m Mukul Raj, a third-year undergraduate at IIT
-                Gandhinagar. I have an interest in the fields of Web
-                Development, App Development, and Cyber Security.
+                Gandhinagar. I have an interest in the fields of{" "}
+                <ParaLink
+                  text="Web Development"
+                  href="https://mk-mukul.github.io/website_alpha/"
+                />
+                {", "}
+                <ParaLink
+                  text="App Development"
+                  href="https://github.com/mk-mukul/shoppily"
+                />
+                , and Cyber Security.
               </p>
             </div>
-            <a
-              className=" mt-14 bg-textSecondary"
-              onClick={() => changeTheme()}
-            >
-              <button className=" border-[1px] bg-bgPrimary hover:opacity-95 py-3 px-5 border-textSecondary text-textSecondary font-fira rounded text-lg">
-                Change Theme
-              </button>
+            <a className=" mt-14" onClick={() => changeTheme()}>
+              <Button name="Change Theme" />
             </a>
           </section>
 
@@ -67,42 +75,39 @@ export default function Home({ skills, theme, themes, setTheme }) {
               style={{ gridTemplateColumns: "3fr 2fr" }}
             >
               <div>
-                Hello&#33; My name is Mukul, and I enjoy working with technologies. My interest in tech started back in 2009 when I had my first computer. I installed and played many computer games and learned a lot about computers.
+                Hello&#33; My name is Mukul, and I enjoy working with
+                technologies. My interest in tech started back in 2009 when I
+                had my first computer. I installed and played many computer
+                games and learned a lot about computers.
                 <br />
                 <br />
-                Fast-forward to today. Currently, I&apos;m doing B Tech in <b>Civil Engineering</b> with minor in <b>Computer Science</b> from <a className=" text-textSecondary" href="https://iitgn.ac.in/" target="_blank" rel="noopener noreferrer">IIT Gandhinagar</a>. My main focus these days is learning new skills and making something out of them.
+                Fast-forward to today. Currently, I&apos;m doing B Tech in{" "}
+                <b>Civil Engineering</b> with minor in <b>Computer Science</b>{" "}
+                from{" "}
+                <>
+                  <ParaLink
+                    text="IIT Gandhinagar"
+                    href="https://iitgn.ac.in/"
+                  />
+                </>
+                . My main focus these days is learning new skills and making
+                something out of them.
                 <br />
-                {/* <br /> */}
-                {/* <ul>
-                  <li className="relative">
-                    <Dot />
-                    <p className=" pl-4">I&apos;m an Indian</p>
-                  </li>
-                  <li className="relative">
-                    <Dot />
-                    <p className=" pl-4">
-                      Most used line of code{" "}
-                      <i className="rounded-sm px-1 py-0.5 opacity-75">
-                        git commit -m &quot;Initial Commit&quot;
-                      </i>
-                    </p>
-                  </li>
-                  <li className="relative">
-                    <Dot />
-                    <p className=" pl-4">Fun fact: I love pizza</p>
-                  </li>
-                </ul> */}
                 <div>
-                  <h3 className=" mt-5">Here are few technologies I&apos;ve worked with - </h3>
-                  <ul className="grid grid-cols-3 font-fira gap-2 pt-3 text-sm">
-                    {
-                      skills.map((val) => {
-                        return (
-                          <li key={val} className="flex"><span className=" pt-[3px] pr-1 text-textSecondary"><FiChevronRight /></span><p className="">{val}</p></li>
-                        )
-                      })
-                    }
-
+                  <h3 className=" mt-5">
+                    Here are few technologies I&apos;ve worked with -{" "}
+                  </h3>
+                  <ul className="grid grid-cols-3 font-fira font-bold gap-2 pt-3 text-xs">
+                    {skills.map((val) => {
+                      return (
+                        <li key={val} className="flex">
+                          <span className=" pt-[3px] pr-1 text-textSecondary">
+                            <FiChevronRight />
+                          </span>
+                          <p className="">{val}</p>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
@@ -148,15 +153,15 @@ export default function Home({ skills, theme, themes, setTheme }) {
                       friends on this platform.
                       <br />
                       <br />
-                      PS - <b>Live Typing...</b> &#40; you can also
-                      see what your friend is typing &#41;
+                      PS - <b>Live Typing...</b> &#40; you can also see what
+                      your friend is typing &#41;
                     </p>
                   </div>
-                  <ul className="flex gap-5">
+                  <ul className="flex font-fira font-bold text-xs gap-4">
+                    <li>MongoDB</li>
+                    <li>Express</li>
                     <li>React</li>
-                    <li>Mongo DB</li>
-                    <li>Express JS</li>
-                    <li>Tailwind CSS</li>
+                    <li>TailwindCSS</li>
                     <li>Socket.io</li>
                   </ul>
                   <div className="flex gap-1 text-xl py-3">
@@ -180,7 +185,12 @@ export default function Home({ skills, theme, themes, setTheme }) {
                 </div>
               </div>
               <div className="flex justify-left">
-                <a className="flex flex-col h-min self-center rounded-md cursor-pointer bg-textSecondary" href="https://mk-mukul.github.io/website_alpha/" target="_blank" rel="noopener noreferrer">
+                <a
+                  className="flex flex-col h-min self-center rounded-md cursor-pointer bg-textSecondary"
+                  href="https://mk-mukul.github.io/website_alpha/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     className="rounded-sm opacity-[80%] hover:opacity-[100%]"
                     width={600}
@@ -197,29 +207,31 @@ export default function Home({ skills, theme, themes, setTheme }) {
             id="contact"
             className="mx-auto py-[100px] flex flex-col justify-center items-start max-w-[600px]"
           >
-            <h3 className=" w-full flex justify-center"><span className=" text-textSecondary font-fira mr-1.5">03.</span>What&apos;s Next?</h3>
+            <h1 className=" w-full flex text-textSecondary font-fira justify-center">
+              <span className="  mr-1.5">03.</span>
+              What&apos;s Next?
+            </h1>
             <div className="flex justify-center w-full mt-4 mb-6">
               <div
                 className={`mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
               ></div>
-              <h1 className="text-4xl font-bold">Get In Touch</h1>
+              <h2 className="text-4xl font-bold">Get In Touch</h2>
               <div
                 className={`mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
               ></div>
             </div>
             <div className="flex w-full justify-center text-center">
-              Have any projects in mind or want to discuss any things? My inbox is always open whether you have a question or just want to say hi. I&apos;ll try my best to get back to you&#33;
+              Have any projects in mind or want to discuss any things? My inbox
+              is always open whether you have a question or just want to say hi.
+              I&apos;ll try my best to get back to you&#33;
             </div>
             <div className="flex justify-center w-full py-14">
               <a
-                className=" bg-textSecondary"
                 href="mailto:mukul.raj@iitgn.ac.in"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className=" border-[1px] bg-bgPrimary hover:opacity-95 py-3 px-5 border-textSecondary text-textSecondary font-fira rounded text-lg">
-                  Say Hello
-                </button>
+                <Button name="Say Hello" />
               </a>
             </div>
           </section>
@@ -234,3 +246,25 @@ const Dot = () => {
     <div className={`absolute top-2 bg-textPrimary w-2 h-2 rounded-full`}></div>
   );
 };
+
+{
+  /* <ul>
+      <li className="relative">
+        <Dot />
+        <p className=" pl-4">I&apos;m an Indian</p>
+      </li>
+      <li className="relative">
+        <Dot />
+        <p className=" pl-4">
+          Most used line of code{" "}
+          <i className="rounded-sm px-1 py-0.5 opacity-75">
+            git commit -m &quot;Initial Commit&quot;
+          </i>
+        </p>
+      </li>
+      <li className="relative">
+        <Dot />
+        <p className=" pl-4">Fun fact: I love pizza</p>
+      </li>
+    </ul> */
+}

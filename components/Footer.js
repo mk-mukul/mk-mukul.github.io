@@ -1,5 +1,6 @@
 import React from "react";
 import { FiLinkedin, FiGithub, FiInstagram, FiTwitter } from "react-icons/fi";
+import ParaLink from "./ParaLink";
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/mk-mukul/"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block hover:text-textSecondary`}
+              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiLinkedin size={"20px"} />
             </a>
@@ -22,7 +23,7 @@ const Footer = () => {
               href="https://github.com/mk-mukul"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block hover:text-textSecondary`}
+              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiGithub size={"20px"} />
             </a>
@@ -32,7 +33,7 @@ const Footer = () => {
               href="https://www.instagram.com/mk_mucool/"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block hover:text-textSecondary`}
+              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiInstagram size={"20px"} />
             </a>
@@ -42,7 +43,7 @@ const Footer = () => {
               href="https://twitter.com/mk_mucool"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block hover:text-textSecondary`}
+              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiTwitter size={"20px"} />
             </a>
@@ -58,7 +59,7 @@ const Footer = () => {
             href="mailto:mukul.raj@iitgn.ac.in"
             target="_blank"
             rel="noreferrer"
-            className={`text-textPrimary font-mono py-[8px] hover:text-textSecondary px-2.5`}
+            className={`text-textPrimary font-mono py-[8px] transition-all hover:text-textSecondary hover:translate-y-[-5px] px-2.5`}
             style={{ writingMode: "vertical-lr", letterSpacing: "1px" }}
           >
             mukul.raj@iitgn.ac.in
@@ -68,31 +69,16 @@ const Footer = () => {
       </div>
 
       <footer
-        className={` font-fira bg-bgPrimary text-textPrimary px-12 w-full shadow-md`}
+        className={` font-fira text-xs bg-bgPrimary text-textPrimary px-12 w-full shadow-md`}
       >
         <div className="footer py-6 flex flex-col gap-2 justify-center items-center">
-          <p className="text-sm">
+          <p className="">
             Developed by Mukul using{" "}
-            <a
-              className=" hover:text-textSecondary"
-              href="https://nextjs.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Next.js
-            </a>{" "}
-            and{" "}
-            <a
-              className=" hover:text-textSecondary"
-              href="https://tailwindcss.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tailwind CSS
-            </a>
+            <ParaLink text="Next.js" href="https://nextjs.org/" />
+            {" and "}
+            <ParaLink text="TailwindCSS" href="https://tailwindcss.com/" />
           </p>
-          <p className="flex text-sm">
-            {" "}
+          <p className="flex">
             <span className="pr-1.5 text-base">&copy;</span> 2022 Mukul Raj
           </p>
         </div>
