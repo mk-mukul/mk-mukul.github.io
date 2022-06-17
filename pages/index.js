@@ -1,7 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import mukul from "../assets/images/mukul.jpeg";
-import website_alpha from "../assets/images/website_alpha.png";
 import { FiGithub, FiExternalLink, FiChevronRight } from "react-icons/fi";
 import Button from "../components/Button";
 import ParaLink from "../components/ParaLink";
@@ -20,20 +17,22 @@ export default function Home({ skills, theme, themes, setTheme }) {
   return (
     <>
       <div id="content" className={`bg-bgPrimary text-textPrimary`}>
-        <main className="px-[150px] mx-auto max-w-[1600px] w-full min-h-screen">
-          <section className="min-h-screen flex flex-col justify-center items-start max-w-[1060px] mx-auto">
+        <main className=" px-[16px] md:px-[100px] lg:px-[150px] mx-auto max-w-[1600px] w-full min-h-screen">
+          <section className="min-h-screen flex flex-col gap-3 lg:gap-4 justify-center items-start max-w-[1060px] mx-auto">
             <div>
               <h1 className=" font-fira text-textSecondary">Hi, My name is</h1>
             </div>
-            <div className=" pt-5">
-              <h2 className="font text-7xl font-bold">Mukul Raj.</h2>
+            <div className="">
+              <h2 className=" text-4xl md:text-6xl lg:text-7xl font-bold">
+                Mukul Raj.
+              </h2>
             </div>
-            <div className=" pt-5">
-              <h3 className="font text-7xl font-bold opacity-[60%]">
+            <div className="">
+              <h3 className=" text-4xl md:text-5xl lg:text-7xl font-bold opacity-[60%]">
                 I am full stack web developer.
               </h3>
             </div>
-            <div className="max-w-lg pt-6">
+            <div className=" max-w-lg opacity-90">
               <p>
                 I&apos;m Mukul Raj, a third-year undergraduate at IIT
                 Gandhinagar. I have an interest in the fields of{" "}
@@ -49,54 +48,51 @@ export default function Home({ skills, theme, themes, setTheme }) {
                 , and Cyber Security.
               </p>
             </div>
-            <a className=" mt-14" onClick={() => changeTheme()}>
+            <a className=" mt-10" onClick={() => changeTheme()}>
               <Button name="Change Theme" />
             </a>
           </section>
 
           <section
             id="about"
-            className="mx-auto py-[100px] flex flex-col justify-center items-start max-w-[900px]"
+            className="mx-auto py-[75px] md:py-[100px] flex flex-col justify-center items-start max-w-[900px]"
           >
             <div className="flex w-full pb-10">
-              <h1></h1>
-              <h1 className="text-3xl font-bold">
-                <span className=" text-textSecondary font-fira text-2xl">
+              <h1 className=" text-2xl md:text-3xl font-bold">
+                <span className=" text-textSecondary font-fira text-xl md:text-2xl">
                   01.
                 </span>{" "}
                 About Me
               </h1>
               <div
-                className={`ml-6 w-[200px] h-[1px] self-center bg-textPrimary`}
+                className={` ml-6 w-[200px] h-[1px] self-center bg-textPrimary flex-1 md:flex-none`}
               ></div>
             </div>
-            <div
-              className="grid grid-cols-2 gap-[50px] w-full"
-              style={{ gridTemplateColumns: "3fr 2fr" }}
-            >
-              <div>
-                Hello&#33; My name is Mukul, and I enjoy working with
-                technologies. My interest in tech started back in 2009 when I
-                had my first computer. I installed and played many computer
-                games and learned a lot about computers.
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] md:gap-[10px] lg:gap-[50px] w-full" >
+              <div className=" opacity-90">
+                <p>
+                  Hello&#33; My name is Mukul, and I enjoy working with
+                  technologies. My interest in tech started back in 2009 when I
+                  had my first computer. I installed and played many computer
+                  games and learned a lot about computers.
+                </p>
                 <br />
-                <br />
-                Fast-forward to today. Currently, I&apos;m doing B Tech in{" "}
-                <b>Civil Engineering</b> with minor in <b>Computer Science</b>{" "}
-                from{" "}
-                <>
+                <p>
+                  Fast-forward to today. Currently, I&apos;m doing B Tech in{" "}
+                  <b>Civil Engineering</b> with minor in <b>Computer Science</b>{" "}
+                  from{" "}
                   <ParaLink
                     text="IIT Gandhinagar"
                     href="https://iitgn.ac.in/"
                   />
-                </>
-                . My main focus these days is learning new skills and making
-                something out of them.
+                  . My main focus these days is learning new skills and making
+                  something out of them.
+                </p>
                 <br />
                 <div>
-                  <h3 className=" mt-5">
+                  <p className=" mt-2">
                     Here are few technologies I&apos;ve worked with -{" "}
-                  </h3>
+                  </p>
                   <ul className="grid grid-cols-3 font-fira font-bold gap-2 pt-3 text-xs">
                     {skills.map((val) => {
                       return (
@@ -117,7 +113,7 @@ export default function Home({ skills, theme, themes, setTheme }) {
                     className="z-[10] rounded-md opacity-[80%] hover:opacity-[100%]"
                     width={296}
                     height={296}
-                    src={mukul}
+                    src={"/img/mukul.jpeg"}
                     alt="mukul"
                   />
                 </div>
@@ -128,63 +124,61 @@ export default function Home({ skills, theme, themes, setTheme }) {
 
           <section
             id="projects"
-            className="mx-auto py-[100px] flex flex-col justify-center items-start max-w-[1000px]"
+            className="mx-auto py-[75px] md:py-[100px] flex flex-col justify-center items-start max-w-[1000px]"
           >
             <div className="flex w-full pb-10">
-              <h2></h2>
-              <h1 className="text-3xl font-bold">
-                <span className=" text-textSecondary font-fira text-2xl">
+              <h1 className=" text-2xl md:text-3xl font-bold">
+                <span className=" text-textSecondary font-fira text-xl">
                   02.
                 </span>{" "}
                 Some Projects I&apos;ve Built
               </h1>
               <div
-                className={`ml-6 w-[200px] h-[1px] self-center bg-textPrimary`}
+                className={` ml-6 w-[200px] h-[1px] self-center bg-textPrimary flex-1 md:flex-none`}
               ></div>
             </div>
-            <div className="flex gap-[50px] w-full">
-              <div className=" flex-1 z-10">
-                <div className=" flex flex-col w-[141%] top">
-                  <h2 className=" text-2xl font-bold">ALPHA Chat</h2>
-                  <div className={`bg-bgSecondary rounded-sm px-6 py-4 my-5`}>
-                    <p>
-                      A web app for real time texting. Make an account, add
-                      friends in your friend list, and start chatting with your
-                      friends on this platform.
-                      <br />
-                      <br />
-                      PS - <b>Live Typing...</b> &#40; you can also see what
-                      your friend is typing &#41;
-                    </p>
-                  </div>
-                  <ul className="flex font-fira font-bold text-xs gap-4">
-                    <li>MongoDB</li>
-                    <li>Express</li>
-                    <li>React</li>
-                    <li>TailwindCSS</li>
-                    <li>Socket.io</li>
-                  </ul>
-                  <div className="flex gap-1 text-xl py-3">
-                    <a
-                      className=" hover:text-textSecondary p-2"
-                      href="https://github.com/mk-mukul/website_alpha"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FiGithub />
-                    </a>
-                    <a
-                      className=" hover:text-textSecondary p-2"
-                      href="https://mk-mukul.github.io/website_alpha/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FiExternalLink />
-                    </a>
-                  </div>
+            <div className="grid md:grid-cols-3 bg-[url('/img/websiteAlpha.png')] rounded-md bg-center md:bg-none" >
+              <div className=" z-10 flex flex-col float-right md:w-[160%] rounded-md shadow-md md:shadow-none hover:shadow p-2 md:hover:shadow-none bg-bgPrimary md:bg-transparent opacity-90 md:opacity-100">
+                <h2 className=" text-xl md:text-2xl font-bold">ALPHA Chat</h2>
+                <div className={`bg-bgSecondary rounded-sm px-3 md:px-6 py-2 md:py-4 my-5`}>
+                  <p>
+                    A web app for real time texting. Make an account, add
+                    friends in your friend list, and start chatting with your
+                    friends on this platform.
+                  </p>
+                  <br />
+                  <p>
+                    PS - <b>Live Typing...</b> &#40; you can also see what
+                    your friend is typing &#41;
+                  </p>
+                </div>
+                <ul className="flex flex-wrap font-fira font-bold text-xs gap-y-1 gap-x-4">
+                  <li>MongoDB</li>
+                  <li>Express</li>
+                  <li>React</li>
+                  <li>TailwindCSS</li>
+                  <li>Socket.io</li>
+                </ul>
+                <div className="flex gap-1 text-xl py-3">
+                  <a
+                    className=" hover:text-textSecondary p-2"
+                    href="https://github.com/mk-mukul/website_alpha"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FiGithub />
+                  </a>
+                  <a
+                    className=" hover:text-textSecondary p-2"
+                    href="https://mk-mukul.github.io/website_alpha/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FiExternalLink />
+                  </a>
                 </div>
               </div>
-              <div className="flex justify-left">
+              <div className=" hidden md:flex md:justify-end md:col-span-2 ">
                 <a
                   className="flex flex-col h-min self-center rounded-md cursor-pointer bg-textSecondary"
                   href="https://mk-mukul.github.io/website_alpha/"
@@ -195,7 +189,7 @@ export default function Home({ skills, theme, themes, setTheme }) {
                     className="rounded-sm opacity-[80%] hover:opacity-[100%]"
                     width={600}
                     height={293}
-                    src={website_alpha}
+                    src={"/img/websiteAlpha.png"}
                     alt="mukul"
                   />
                 </a>
@@ -205,26 +199,26 @@ export default function Home({ skills, theme, themes, setTheme }) {
 
           <section
             id="contact"
-            className="mx-auto py-[100px] flex flex-col justify-center items-start max-w-[600px]"
+            className="mx-auto py-[75px] md:py-[100px] flex flex-col justify-center items-start max-w-[600px]"
           >
             <h1 className=" w-full flex text-textSecondary font-fira justify-center">
-              <span className="  mr-1.5">03.</span>
+              <span className=" mr-1.5">03.</span>
               What&apos;s Next?
             </h1>
             <div className="flex justify-center w-full mt-4 mb-6">
               <div
-                className={`mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
+                className={` hidden md:block mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
               ></div>
-              <h2 className="text-4xl font-bold">Get In Touch</h2>
+              <h2 className=" text-3xl md:text-4xl font-bold">Get In Touch</h2>
               <div
-                className={`mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
+                className={` hidden md:block mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
               ></div>
             </div>
-            <div className="flex w-full justify-center text-center">
+            <p className=" opacity-90 w-full text-center">
               Have any projects in mind or want to discuss any things? My inbox
               is always open whether you have a question or just want to say hi.
               I&apos;ll try my best to get back to you&#33;
-            </div>
+            </p>
             <div className="flex justify-center w-full py-14">
               <a
                 href="mailto:mukul.raj@iitgn.ac.in"

@@ -4,10 +4,12 @@ import ParaLink from "./ParaLink";
 
 const Footer = () => {
   return (
-    <div className=" font-mono">
-      <div className="w-10 fixed bottom-0 left-10 right-auto flex flex-col opacity-80">
-        <div className={`w-[1px] h-10 self-center bg-textPrimary`}></div>
-        <ul className="flex flex-col space-y-4 text-center my-5">
+    <div className=" font-mono bg-bgPrimary text-textPrimary px-4 md:px-8 lg:px-12  py-6">
+      <div className=" w-full md:w-10 md:fixed bottom-0 left-5 lg:left-10 right-auto flex flex-col opacity-80">
+        <div
+          className={` hidden md:block w-[1px] h-10 self-center bg-textPrimary`}
+        ></div>
+        <ul className="flex justify-center md:flex-col space-x-3 md:space-x-0 md:space-y-4 text-center my-3 md:my-5">
           <li>
             <a
               href="https://www.linkedin.com/in/mk-mukul/"
@@ -49,11 +51,15 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-        <div className={`w-[1px] h-24 self-center bg-textPrimary`}></div>
+        <div
+          className={` hidden md:block w-[1px] h-24 self-center bg-textPrimary`}
+        ></div>
       </div>
 
-      <div className="w-10 fixed bottom-0 right-10 left-auto flex flex-col opacity-80">
-        <div className={`w-[1px] h-10 self-center bg-textPrimary`}></div>
+      <div className=" hidden md:flex w-10 fixed bottom-0 md:right-5 lg:right-10 left-auto flex-col opacity-80">
+        <div
+          className={` hidden md:block w-[1px] h-10 self-center bg-textPrimary`}
+        ></div>
         <div className="flex flex-col relative items-center my-5">
           <a
             href="mailto:mukul.raj@iitgn.ac.in"
@@ -65,14 +71,14 @@ const Footer = () => {
             mukul.raj@iitgn.ac.in
           </a>
         </div>
-        <div className={`w-[1px] h-24 self-center bg-textPrimary`}></div>
+        <div
+          className={` hidden md:block w-[1px] h-24 self-center bg-textPrimary`}
+        ></div>
       </div>
 
-      <footer
-        className={` font-fira text-xs bg-bgPrimary text-textPrimary px-12 w-full shadow-md`}
-      >
-        <div className="footer py-6 flex flex-col gap-2 justify-center items-center">
-          <p className="">
+      <footer className={` font-fira text-xs w-full`}>
+        <div className="footer flex flex-col gap-2 justify-center items-center">
+          <p className=" text-center">
             Developed by Mukul using{" "}
             <ParaLink text="Next.js" href="https://nextjs.org/" />
             {" and "}
