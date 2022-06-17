@@ -3,28 +3,32 @@
 @tailwind utilities;
 
 .firefly {
-    --bgPrimary: theme(colors.firefly.bgPrimary);
-    --bgSecondary: theme(colors.firefly.bgSecondary);
-    --textPrimary: theme(colors.firefly.textPrimary);
+  --bgPrimary: theme(colors.firefly.bgPrimary);
+  --bgSecondary: theme(colors.firefly.bgSecondary);
+  --textPrimary: theme(colors.firefly.textPrimary);
+  --textSecondary: theme(colors.firefly.textSecondary);
 }
 .blueNight {
-    --bgPrimary: theme(colors.blueNight.bgPrimary);
-    --bgSecondary: theme(colors.blueNight.bgSecondary);
-    --textPrimary: theme(colors.blueNight.textPrimary);
+  --bgPrimary: theme(colors.blueNight.bgPrimary);
+  --bgSecondary: theme(colors.blueNight.bgSecondary);
+  --textPrimary: theme(colors.blueNight.textPrimary);
+  --textSecondary: theme(colors.blueNight.textSecondary);
 }
 .redPear {
-    --bgPrimary: theme(colors.redPear.bgPrimary);
-    --bgSecondary: theme(colors.redPear.bgSecondary);
-    --textPrimary: theme(colors.redPear.textPrimary);
+  --bgPrimary: theme(colors.redPear.bgPrimary);
+  --bgSecondary: theme(colors.redPear.bgSecondary);
+  --textPrimary: theme(colors.redPear.textPrimary);
+  --textSecondary: theme(colors.redPear.textSecondary);
 }
 .lynxWhite {
-    --bgPrimary: theme(colors.lynxWhite.bgPrimary);
-    --bgSecondary: theme(colors.lynxWhite.bgSecondary);
-    --textPrimary: theme(colors.lynxWhite.textPrimary);
+  --bgPrimary: theme(colors.lynxWhite.bgPrimary);
+  --bgSecondary: theme(colors.lynxWhite.bgSecondary);
+  --textPrimary: theme(colors.lynxWhite.textPrimary);
+  --textSecondary: theme(colors.lynxWhite.textSecondary);
 }
 .milkyWay {
-    --bgPrimary: theme(colors.milkyWay.bgPrimary);
-    --bgSecondary: theme(colors.milkyWay.bgSecondary);
-    --textPrimary: theme(colors.milkyWay.textPrimary);
+  --bgPrimary: theme(colors.milkyWay.bgPrimary);
+  --bgSecondary: theme(colors.milkyWay.bgSecondary);
+  --textPrimary: theme(colors.milkyWay.textPrimary);
+  --textSecondary: theme(colors.milkyWay.textSecondary);
 }
-

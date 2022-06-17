@@ -1,6 +1,6 @@
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
-import Headtag from "../components/Headtag";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 
@@ -8,41 +8,55 @@ function MyApp({ Component, pageProps }) {
   const themes = [
     {
       name: "Firefly",
-      code: "firefly"
+      code: "firefly",
     },
     {
       name: "Blue Night",
-      code: "blueNight"
+      code: "blueNight",
     },
     {
       name: "Red Pear",
-      code: "redPear"
+      code: "redPear",
     },
     {
       name: "Lynx White",
-      code: "lynxWhite"
+      code: "lynxWhite",
     },
     {
       name: "Milky Way",
-      code: "milkyWay"
+      code: "milkyWay",
     },
-  ]
-  const [theme, setTheme] = useState(themes[4].code);
+  ];
+  const [theme, setTheme] = useState(themes[0].code);
 
+  const skills = [
+    "Javascript",
+    "MongoDB",
+    "Expressjs",
+    "React",
+    "Node.js",
+    "Next.js",
+    "React Native",
+    "Tailwind CSS",
+    "Linux",
+    "Arduino",
+    "IOT",
+  ];
   return (
     <>
+      <Head>
+        <title>Mukul</title>
+      </Head>
       <div className={`${theme}`}>
-        <Headtag />
-        <Navbar
+        <Navbar themes={themes} theme={theme} setTheme={setTheme} />
+        <Component
+          skills={skills}
           themes={themes}
           theme={theme}
           setTheme={setTheme}
-        />
-        <Component
           {...pageProps}
         />
-        <Footer
-        />
+        <Footer />
       </div>
     </>
   );
