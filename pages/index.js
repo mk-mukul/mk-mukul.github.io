@@ -159,9 +159,9 @@ export default function Home({ skills, theme, themes, setTheme }) {
                   <li>TailwindCSS</li>
                   <li>Socket.io</li>
                 </ul>
-                <div className="flex gap-1 text-xl py-3">
+                <div className="flex gap-1 text-xl py-3 ">
                   <a
-                    className=" hover:text-textSecondary p-2"
+                    className=" text-textSecondary p-2 hover:translate-y-[-4px] transition-all"
                     href="https://github.com/mk-mukul/website_alpha"
                     target="_blank"
                     rel="noreferrer"
@@ -169,7 +169,7 @@ export default function Home({ skills, theme, themes, setTheme }) {
                     <FiGithub />
                   </a>
                   <a
-                    className=" hover:text-textSecondary p-2"
+                    className=" text-textSecondary p-2 hover:translate-y-[-4px] transition-all"
                     href="https://mk-mukul.github.io/website_alpha/"
                     target="_blank"
                     rel="noreferrer"
