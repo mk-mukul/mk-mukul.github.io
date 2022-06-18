@@ -6,6 +6,7 @@ export default function Document() {
       <Head>
         <meta name="author" content="Mukul" />
         <meta name="description" content="Presonal Website of Mukul" />
+        <link rel="icon" href="/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

@@ -18,11 +18,41 @@ const projects = [
       ],
     },
     {
+      title: "Metis Summer Project",
+      projectLink: "https://metis-website-iitgn.herokuapp.com",
+      imgLink: "/img/metis.png",
+      desc: ["Website for Metis club ( Coding ) of IIT Gandhinagar. The admin can provide different online resources, announcements for workshops and events, and projects created under Metis.", "A group effort went into creating this website.", "Group Members - Mukul, Prakriti, Sukanya" ],
+      tech: [ "MongoDB", "Express", "Googleapis", "Bootstrap", "Strapi" ],
+      links: [
+        {
+          for: "github",
+          link: "https://github.com/mk-mukul/WD-GP-32"
+        },
+        {
+          for: "website",
+          link: "https://metis-website-iitgn.herokuapp.com"
+        },
+      ],
+    },
+    {
+      title: "SHOPPILY",
+      projectLink: "https://github.com/mk-mukul/shoppily",
+      imgLink: "/img/shoppily.png",
+      desc: ["SHOPPILY is UI design of a online shopping app coded in REACT NATIVE"],
+      tech: [ "React-Native", "Javascript", "Figma", "Android-Studio" ],
+      links: [
+        {
+          for: "github",
+          link: "https://github.com/mk-mukul/shoppily"
+        },
+      ],
+    },
+    {
       title: "Btech-20 Website",
       projectLink: "https://mk-mukul.github.io/btech20-iitgn/",
       imgLink: "/img/btech20.png",
       desc: ["A website for IITGN Btech-20 student, used as a Time Table, collection of online classes links and resources.", "During online mode, nearly 200 people visit this site daily."],
-      tech: [ "Express", "React", "TailwindCSS" ],
+      tech: [ "MongoDB", "Express", "React", "TailwindCSS" ],
       links: [
         {
           for: "github",
@@ -35,5 +65,6 @@ const projects = [
       ],
     },
   ]
-
+  
   export default projects;
+  
