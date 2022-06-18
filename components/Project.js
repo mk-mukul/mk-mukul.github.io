@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 const Project = ({ isRight, project }) => {
 
+    const [matches, setMatches] = useState(false);
 
-    const myStyle = {
-        // backgroundImage: `url(${project.imgLink})`,
-        // '@media (minWidth: 768px)': {
-        //     backgroundImage: 'none',
-        // }
+    useEffect(() => {
+        setMatches(window.innerWidth<768)
+        window.addEventListener("resize", ()=>{
+            setMatches(window.innerWidth<768)
+        })
+    }, []);
+
+    const myStyle = (matches) => {
+        return ({
+            backgroundImage: matches?`url(${project.imgLink})`:'none',
+        })
     }
 
     return (
         <>
-            <div className={`grid md:grid-cols-12 rounded-md bg-center md:bg-none my-4 md:my-10`} style={myStyle}>
+            <div className={` grid md:grid-cols-12 rounded-md bg-center my-4 md:my-10`} style={myStyle(matches)}>
                 <div className={` ${isRight ? " col-start-1 col-end-8" : "col-start-6 col-end-13"} row-start-1 row-end-1 hidden md:flex md:justify-end bg-opacity-0`}>
                     <a
                         className="flex flex-col h-min self-center rounded-md cursor-pointer bg-textSecondary"
@@ -31,10 +38,10 @@ const Project = ({ isRight, project }) => {
                         />
                     </a>
                 </div>
-                <div className={` self-center row-start-1 row-end-1 z-10 flex flex-col rounded-md shadow-md md:shadow-none hover:shadow p-2 md:hover:shadow-none bg-bgPrimary md:bg-transparent opacity-90 md:opacity-100 ${isRight ? "md:text-right col-start-7 col-end-13" : "col-start-1 col-end-7"}`}>
+                <div className={` self-center row-start-1 row-end-1 z-10 flex flex-col rounded-md drop-shadow-lg md:drop-shadow-none hover:drop-shadow-xl md:hover:drop-shadow-none px-5 pt-8 md:p-0 bg-bgSecondary md:bg-transparent ${isRight ? "md:text-right col-start-7 col-end-13" : "col-start-1 col-end-7"}`}>
                     <h1 className=' font-mono text-textSecondary text-xs md:text-sm mb-1'>Featured Project</h1>
-                    <h2 className=" text-xl md:text-2xl font-bold">{project.title}</h2>
-                    <div className={`bg-bgSecondary rounded-sm px-3 md:px-6 py-2 md:py-4 my-5 text-left`}>
+                    <h2 className=" text-xl opacity-100 md:text-2xl font-bold">{project.title}</h2>
+                    <div className={` md:drop-shadow-md md:bg-bgSecondary rounded-sm md:px-6 py-2 md:py-4 my-5 text-left`}>
                         {project.desc.map((val, ind) => {
                             return (
                                 <div key={ind}>

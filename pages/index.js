@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRef } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import Button from "../components/Button";
 import ParaLink from "../components/ParaLink";
@@ -15,6 +16,18 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
       }
     }
   };
+
+  const ref = useRef();
+  const animation = () => {
+    if (ref.current.classList.contains("translate-x-5")) {
+      ref.current.classList.remove("translate-x-5", "translate-y-5");
+      ref.current.classList.add("translate-x-3", "translate-y-3");
+    } else if (ref.current.classList.contains("translate-x-3")) {
+      ref.current.classList.remove("translate-x-3", "translate-y-3");
+      ref.current.classList.add("translate-x-5", "translate-y-5");
+    }
+  };
+
   return (
     <>
       <div id="content" className={`bg-bgPrimary text-textPrimary`}>
@@ -69,7 +82,7 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
                 className={` ml-6 w-[200px] h-[1px] self-center bg-textPrimary flex-1 md:flex-none`}
               ></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] md:gap-[10px] lg:gap-[50px] w-full" >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] md:gap-[10px] lg:gap-[50px] w-full">
               <div className=" opacity-90">
                 <p>
                   Hello&#33; My name is Mukul, and I enjoy working with
@@ -109,16 +122,23 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
                 </div>
               </div>
               <div className="flex justify-center">
-                <div className="relative flex flex-col h-min rounded-md bg-textSecondary">
-                  <Image
-                    className="z-[10] rounded-md opacity-[80%] hover:opacity-[100%]"
-                    width={296}
-                    height={296}
-                    src={"/img/mukul.jpeg"}
-                    alt="mukul"
-                  />
+                <div className="relative flex flex-col h-min bg-bgPrimary">
+                  <div className=" z-[10] flex bg-textSecondary h-min opacity-100 rounded-md">
+                    <Image
+                      onMouseEnter={() => animation()}
+                      onMouseLeave={() => animation()}
+                      className="z-[20] rounded-md opacity-[80%] hover:opacity-[100%]"
+                      width={296}
+                      height={296}
+                      src={"/img/mukul.jpeg"}
+                      alt="mukul"
+                    />
+                  </div>
+                  <div
+                    ref={ref}
+                    className=" translate-x-5 translate-y-5 rounded-md absolute w-full h-full border-2 border-textSecondary transition-all"
+                  ></div>
                 </div>
-                {/* <div className="absolute border-2"></div> */}
               </div>
             </div>
           </section>
@@ -139,9 +159,7 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
               ></div>
             </div>
             {projects.map((val, ind) => {
-              return (
-                <Project key={ind} project={val} isRight={ind%2==0} />
-              )
+              return <Project key={ind} project={val} isRight={ind % 2 == 0} />;
             })}
           </section>
 
@@ -211,27 +229,24 @@ const Dot = () => {
     </ul> */
 }
 
-
-
-
-
-
-
 const projects = [
   {
     title: "Alpha Chat",
     projectLink: "https://mk-mukul.github.io/website_alpha/",
     imgLink: "/img/websiteAlpha.png",
-    desc: ["A web app for real time texting. Make an account, add friends in your friend list, and start chatting with your friends on this platform.", "PS - Live Typing... ( you can also see what your friend is typing )"],
+    desc: [
+      "A web app for real time texting. Make an account, add friends in your friend list, and start chatting with your friends on this platform.",
+      "PS - Live Typing... ( you can also see what your friend is typing )",
+    ],
     tech: ["MongoDB", "Express", "React", "TailwindCSS", "Socket.io"],
     links: [
       {
         for: "github",
-        link: "https://github.com/mk-mukul/website_alpha"
+        link: "https://github.com/mk-mukul/website_alpha",
       },
       {
         for: "website",
-        link: "https://mk-mukul.github.io/website_alpha/"
+        link: "https://mk-mukul.github.io/website_alpha/",
       },
     ],
   },
@@ -239,17 +254,20 @@ const projects = [
     title: "Btech-20 Website",
     projectLink: "https://mk-mukul.github.io/btech20-iitgn/",
     imgLink: "/img/btech20.png",
-    desc: ["A website for IITGN Btech-20 student, used as a Time Table, collection of online classes links and resources.", "During online mode, nearly 200 people visit this site daily."],
-    tech: [ "Express", "React", "TailwindCSS" ],
+    desc: [
+      "A website for IITGN Btech-20 student, used as a Time Table, collection of online classes links and resources.",
+      "During online mode, nearly 200 people visit this site daily.",
+    ],
+    tech: ["Express", "React", "TailwindCSS"],
     links: [
       {
         for: "github",
-        link: "https://github.com/mk-mukul/btech20-iitgn"
+        link: "https://github.com/mk-mukul/btech20-iitgn",
       },
       {
         for: "website",
-        link: "https://mk-mukul.github.io/btech20-iitgn/"
+        link: "https://mk-mukul.github.io/btech20-iitgn/",
       },
     ],
   },
-]
+];
