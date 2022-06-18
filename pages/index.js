@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { FiGithub, FiExternalLink, FiChevronRight } from "react-icons/fi";
+import { FiChevronRight } from "react-icons/fi";
 import Button from "../components/Button";
 import ParaLink from "../components/ParaLink";
+import Project from "../components/Project";
 
-export default function Home({ skills, theme, themes, setTheme }) {
+export default function Home({ skills, theme, themes, projects, setTheme }) {
   const changeTheme = () => {
     for (let i = 0; i < themes.length; i++) {
       const code = themes[i].code;
@@ -94,9 +95,9 @@ export default function Home({ skills, theme, themes, setTheme }) {
                     Here are few technologies I&apos;ve worked with -{" "}
                   </p>
                   <ul className="grid grid-cols-3 font-fira font-bold gap-2 pt-3 text-xs">
-                    {skills.map((val) => {
+                    {skills.map((val, ind) => {
                       return (
-                        <li key={val} className="flex">
+                        <li key={ind} className="flex">
                           <span className=" pt-[3px] pr-1 text-textSecondary">
                             <FiChevronRight />
                           </span>
@@ -137,64 +138,11 @@ export default function Home({ skills, theme, themes, setTheme }) {
                 className={` ml-6 w-[200px] h-[1px] self-center bg-textPrimary flex-1 md:flex-none`}
               ></div>
             </div>
-            <div className="grid md:grid-cols-3 bg-[url('/img/websiteAlpha.png')] rounded-md bg-center md:bg-none" >
-              <div className=" z-10 flex flex-col float-right md:w-[160%] rounded-md shadow-md md:shadow-none hover:shadow p-2 md:hover:shadow-none bg-bgPrimary md:bg-transparent opacity-90 md:opacity-100">
-                <h2 className=" text-xl md:text-2xl font-bold">ALPHA Chat</h2>
-                <div className={`bg-bgSecondary rounded-sm px-3 md:px-6 py-2 md:py-4 my-5`}>
-                  <p>
-                    A web app for real time texting. Make an account, add
-                    friends in your friend list, and start chatting with your
-                    friends on this platform.
-                  </p>
-                  <br />
-                  <p>
-                    PS - <b>Live Typing...</b> &#40; you can also see what
-                    your friend is typing &#41;
-                  </p>
-                </div>
-                <ul className="flex flex-wrap font-fira font-bold text-xs gap-y-1 gap-x-4">
-                  <li>MongoDB</li>
-                  <li>Express</li>
-                  <li>React</li>
-                  <li>TailwindCSS</li>
-                  <li>Socket.io</li>
-                </ul>
-                <div className="flex gap-1 text-xl py-3 ">
-                  <a
-                    className=" text-textSecondary p-2 hover:translate-y-[-4px] transition-all"
-                    href="https://github.com/mk-mukul/website_alpha"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FiGithub />
-                  </a>
-                  <a
-                    className=" text-textSecondary p-2 hover:translate-y-[-4px] transition-all"
-                    href="https://mk-mukul.github.io/website_alpha/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FiExternalLink />
-                  </a>
-                </div>
-              </div>
-              <div className=" hidden md:flex md:justify-end md:col-span-2 ">
-                <a
-                  className="flex flex-col h-min self-center rounded-md cursor-pointer bg-textSecondary"
-                  href="https://mk-mukul.github.io/website_alpha/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    className="rounded-sm opacity-[80%] hover:opacity-[100%]"
-                    width={600}
-                    height={293}
-                    src={"/img/websiteAlpha.png"}
-                    alt="mukul"
-                  />
-                </a>
-              </div>
-            </div>
+            {projects.map((val, ind) => {
+              return (
+                <Project key={ind} project={val} isRight={ind%2==0} />
+              )
+            })}
           </section>
 
           <section
@@ -262,3 +210,46 @@ const Dot = () => {
       </li>
     </ul> */
 }
+
+
+
+
+
+
+
+const projects = [
+  {
+    title: "Alpha Chat",
+    projectLink: "https://mk-mukul.github.io/website_alpha/",
+    imgLink: "/img/websiteAlpha.png",
+    desc: ["A web app for real time texting. Make an account, add friends in your friend list, and start chatting with your friends on this platform.", "PS - Live Typing... ( you can also see what your friend is typing )"],
+    tech: ["MongoDB", "Express", "React", "TailwindCSS", "Socket.io"],
+    links: [
+      {
+        for: "github",
+        link: "https://github.com/mk-mukul/website_alpha"
+      },
+      {
+        for: "website",
+        link: "https://mk-mukul.github.io/website_alpha/"
+      },
+    ],
+  },
+  {
+    title: "Btech-20 Website",
+    projectLink: "https://mk-mukul.github.io/btech20-iitgn/",
+    imgLink: "/img/btech20.png",
+    desc: ["A website for IITGN Btech-20 student, used as a Time Table, collection of online classes links and resources.", "During online mode, nearly 200 people visit this site daily."],
+    tech: [ "Express", "React", "TailwindCSS" ],
+    links: [
+      {
+        for: "github",
+        link: "https://github.com/mk-mukul/btech20-iitgn"
+      },
+      {
+        for: "website",
+        link: "https://mk-mukul.github.io/btech20-iitgn/"
+      },
+    ],
+  },
+]

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
+import projects from "../data/projects";
+import skills from "../data/skills";
 
 function MyApp({ Component, pageProps }) {
   const themes = [
@@ -29,17 +31,6 @@ function MyApp({ Component, pageProps }) {
   ];
   const [theme, setTheme] = useState(themes[0].code);
 
-  const skills = [
-    "Javascript",
-    "MongoDB",
-    "Expressjs",
-    "React",
-    "Next.js",
-    "React Native",
-    "TailwindCSS",
-    "Arduino",
-    "IOT",
-  ];
   return (
     <>
       <Head>
@@ -51,6 +42,7 @@ function MyApp({ Component, pageProps }) {
           skills={skills}
           themes={themes}
           theme={theme}
+          projects={projects}
           setTheme={setTheme}
           {...pageProps}
         />
