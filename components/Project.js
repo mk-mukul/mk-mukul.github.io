@@ -50,7 +50,7 @@ const Project = ({ isRight, project }) => {
                             )
                         })}
                     </div>
-                    <ul className={` flex flex-wrap font-fira font-bold text-xs gap-y-1 gap-x-4 ${isRight ? "justify-end" : ""}`}>
+                    <ul className={` flex flex-wrap font-fira font-bold text-xs gap-y-1 gap-x-4 ${isRight ? "md:justify-end" : ""}`}>
                         {project.tech.map((val, ind) => {
                             return (
                                 <li key={ind}>{val}{" "}</li>
