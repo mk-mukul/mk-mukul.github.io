@@ -4,7 +4,7 @@ import ParaLink from "./ParaLink";
 
 const Footer = () => {
   return (
-    <div className=" font-mono bg-bgPrimary text-textPrimary px-4 md:px-8 lg:px-12  py-6">
+    <div className=" font-mono px-4 md:px-8 lg:px-12  py-6">
       <div className=" w-full md:w-10 md:fixed bottom-0 left-5 lg:left-10 right-auto flex flex-col opacity-80">
         <div
           className={` hidden md:block w-[1px] h-10 self-center bg-textPrimary`}
@@ -15,7 +15,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/mk-mukul/"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
+              className={` p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiLinkedin size={"20px"} />
             </a>
@@ -25,7 +25,7 @@ const Footer = () => {
               href="https://github.com/mk-mukul"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
+              className={` p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiGithub size={"20px"} />
             </a>
@@ -35,7 +35,7 @@ const Footer = () => {
               href="https://www.instagram.com/mk_mucool/"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
+              className={` p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiInstagram size={"20px"} />
             </a>
@@ -45,7 +45,7 @@ const Footer = () => {
               href="https://twitter.com/mk_mucool"
               target="_blank"
               rel="noreferrer"
-              className={`text-textPrimary p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
+              className={` p-2.5 inline-block transition-all hover:text-textSecondary hover:translate-y-[-5px] `}
             >
               <FiTwitter size={"20px"} />
             </a>
@@ -65,7 +65,7 @@ const Footer = () => {
             href="mailto:mukul.raj@iitgn.ac.in"
             target="_blank"
             rel="noreferrer"
-            className={`text-textPrimary font-mono py-[8px] transition-all hover:text-textSecondary hover:translate-y-[-5px] px-2.5`}
+            className={` font-mono py-[8px] transition-all hover:text-textSecondary hover:translate-y-[-5px] px-2.5`}
             style={{ writingMode: "vertical-lr", letterSpacing: "1px" }}
           >
             mukul.raj@iitgn.ac.in
@@ -85,7 +85,7 @@ const Footer = () => {
             <ParaLink text="TailwindCSS" href="https://tailwindcss.com/" />
           </p>
           <p className="flex">
-            <span className="pr-1.5 text-base">&copy;</span> 2022 Mukul Raj
+            Copyright<span className="px-1.5 font-inter">&copy;</span> 2022 Mukul Raj
           </p>
         </div>
       </footer>

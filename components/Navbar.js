@@ -32,7 +32,7 @@ const Navbar = ({ themes, theme, setTheme }) => {
       }
       if (lastScroll < window.scrollY) {
         setToggleOnScroll("opacity-0 md:opacity-0");
-        setToggleMenu("translate-x-[600px]");
+        setToggleMenu("translate-x-[650px]");
         setToggleMenuIcon("translate-x-[60px]");
         setToggleLogo(" absolute translate-x-[-120px]");
       } else {
@@ -58,7 +58,7 @@ const Navbar = ({ themes, theme, setTheme }) => {
   return (
     <>
       <header
-        className={` font-mono top-0 left-0 bg-bgPrimary text-textPrimary z-50 px-4 md:px-8 lg:px-12 fixed w-full transition-all ${toggleOnScroll} ${navShadow}`}
+        className={` bg-bgPrimary font-mono top-0 left-0 z-50 px-4 md:px-8 lg:px-12 fixed w-full transition-all ${toggleOnScroll} ${navShadow}`}
       >
         <nav className="nav py-[5px] min-h-[60px] md:py-[8px] flex justify-between items-center">
           <div className={` transition-all ${toggleLogo}`}>
