@@ -36,16 +36,21 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        {/* Global Site Tag (gtag.js) - Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-        />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <title>Mukul</title>
+        <meta name="description" content="Mukul Raj is a third-year undergraduate at IIT Gandhinagar." />
+      </Head>
+
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -53,13 +58,8 @@ function MyApp({ Component, pageProps }) {
               page_path: window.location.pathname,
             });
           `,
-          }}
-        />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-        <title>Mukul</title>
-        <meta name="description" content="Mukul Raj is a third-year undergraduate at IIT Gandhinagar." />
-      </Head>
+        }}
+      />
 
       <div className={`${theme} bg-bgPrimary text-textPrimary min-h-screen min-w-screen`}>
         <Navbar themes={themes} theme={theme} setTheme={setTheme} />
