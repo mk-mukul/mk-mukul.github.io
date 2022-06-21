@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter&display=swap');
+
+
 .firefly {
   --bgPrimary: theme(colors.firefly.bgPrimary);
   --bgSecondary: theme(colors.firefly.bgSecondary);
