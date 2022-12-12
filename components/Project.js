@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
@@ -28,12 +29,12 @@ const Project = ({ isRight, project }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img
+                        <Image
                             className="rounded opacity-[80%] hover:opacity-[100%]"
-                            // width={600}
-                            // height={293}
-                            src={project.imgLink}
-                            alt={project.imgAlt}
+                            width={project.img.width}
+                            height={project.img.height}
+                            src={project.img.link}
+                            alt={project.img.alt}
                         />
                     </a>
                 </div>
