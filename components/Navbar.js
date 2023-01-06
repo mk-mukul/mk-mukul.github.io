@@ -86,10 +86,10 @@ const Navbar = ({ themes, theme, setTheme }) => {
             <FiX className=" absolute md:hidden text-textSecondary top-3 right-3 text-5xl" />
             <ul className="flex gap-4 p-5 md:p-0 md:gap-0 justify-center h-full text-base md:text-sm items-center md:space-x-3 flex-col md:flex-row">
               <li className=" w-full">
-                <Link href={"/#about"}>
+                <Link href={"/blogs"}>
                   <a className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
                     <span className=" font-fira text-textSecondary">01.</span>
-                    About
+                    Blogs
                   </a>
                 </Link>
               </li>

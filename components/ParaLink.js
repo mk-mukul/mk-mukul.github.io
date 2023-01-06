@@ -4,7 +4,7 @@ const ParaLink = ({text, href, className}) => {
     return (
         <>
             <a
-                className={` ${className} text-textSecondary relative after:box-border after:w-0 after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-textSecondary hover:after:w-full after:transition-all`}
+                className={` ${className} text-textSecondary cursor-pointer relative after:box-border after:w-0 after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-textSecondary hover:after:w-full after:transition-all`}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"

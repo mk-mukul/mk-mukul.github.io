@@ -4,10 +4,10 @@ const skills = [
   "Expressjs",
   "React",
   "Next.js",
-  "React Native",
-  "TailwindCSS",
-  "Arduino",
-  "IOT",
+  "Pyhton",
+  "C/C++",
+  "Linux",
+  // "",
 ];
 
 export default skills;
