@@ -60,8 +60,8 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
             , and Cyber Security.
           </p>
         </div>
-        <a className=" mt-10" onClick={() => changeTheme()}>
-          <Button name="Change Theme" />
+        <a className=" mt-10" href="https://drive.google.com/file/d/1ezIipDHfo_CgLPODUqdeubWFl3hnH3K0/view?usp=sharing" target="blank">
+          <Button name="Resume" />
         </a>
       </section>
 
