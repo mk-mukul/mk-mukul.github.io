@@ -80,28 +80,6 @@ const projects = [
       },
     ],
   },
-  {
-    title: "Btech-20 Website",
-    projectLink: "https://mk-mukul.github.io/btech20-iitgn/",
-    img: {
-      link: "/img/btech20.png",
-      alt: "btech-20",
-      width: 600,
-      height: 330,
-    },
-    desc: ["A website for IITGN Btech-20 student, used as a Time Table, collection of online classes links and resources.", "During online mode, nearly 200 people visit this site daily."],
-    tech: ["MongoDB", "Express", "React", "TailwindCSS"],
-    links: [
-      {
-        for: "github",
-        link: "https://github.com/mk-mukul/btech20-iitgn"
-      },
-      {
-        for: "website",
-        link: "https://mk-mukul.github.io/btech20-iitgn/"
-      },
-    ],
-  },
 ]
 
 export default projects;

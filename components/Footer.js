@@ -85,7 +85,7 @@ const Footer = () => {
             <ParaLink text="TailwindCSS" href="https://tailwindcss.com/" />
           </p>
           <p className="flex">
-            Copyright<span className="px-1.5 font-inter">&copy;</span> 2022 Mukul Raj
+            Copyright<span className="px-1.5 font-inter">&copy;</span> 2022 mkmukul.com
           </p>
         </div>
       </footer>
