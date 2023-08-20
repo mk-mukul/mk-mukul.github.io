@@ -40,24 +40,32 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
           </h1>
         </div>
         <div className="">
-          <h2 className=" text-4xl md:text-5xl lg:text-7xl font-bold opacity-[60%]">
-            I am full stack web developer.
+          <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold opacity-[60%]">
+            I am Finance and Cybersecurity enthusiast.
           </h2>
         </div>
         <div className=" max-w-lg opacity-90">
           <p>
-            I&apos;m Mukul Raj, a third-year undergraduate at IIT
-            Gandhinagar. I have an interest in the fields of{" "}
+            I&apos;m Mukul Raj, Senior undergraduate at IIT
+            Gandhinagar. I have an interest in the fields of
+            {" "}
             <ParaLink
               text="Web Development"
-              href="https://mk-mukul.github.io/website_alpha/"
+              href="#projects"
+              notTarget={true}
             />
             {", "}
             <ParaLink
-              text="App Development"
-              href="https://github.com/mk-mukul/shoppily"
+              text="Cyber Security"
+              href="#projects"
+              notTarget={true}
             />
-            , and Cyber Security.
+            {" and "}
+            <ParaLink
+              text="Finance"
+              href="#projects"
+              notTarget={true}
+            />
           </p>
         </div>
         <a className=" mt-10" href="https://drive.google.com/file/d/1ezIipDHfo_CgLPODUqdeubWFl3hnH3K0/view?usp=sharing" target="blank">

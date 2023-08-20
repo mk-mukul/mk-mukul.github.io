@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
       code: "milkyWay",
     },
   ];
-  const [theme, setTheme] = useState(themes[0].code);
+  const [theme, setTheme] = useState(themes[1].code);
 
   return (
     <>
