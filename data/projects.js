@@ -2,7 +2,7 @@
 const projects = [
   {
     title: "Algorithmic Trading Application",
-    projectLink: "https://upstox-feed.mkmukul.com/",
+    projectLink: "/algo_trading",
     img: {
       link: "/img/algotrading-result.png",
       alt: "algotrading-result",
@@ -18,7 +18,7 @@ const projects = [
     links: [
       {
         for: "website",
-        link: "https://upstox-feed.mkmukul.com/"
+        link: "/algo_trading"
       },
     ],
   },
