@@ -28,8 +28,8 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter&display=swap" rel="stylesheet" />
 
         {/* google adsense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5158932177576529"
-          crossOrigin="anonymous"></script>
+        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5158932177576529"
+          crossOrigin="anonymous"></script> */}
 
       </Head>
 

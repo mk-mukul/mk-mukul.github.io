@@ -1,0 +1,87 @@
+import { useState, useEffect, useRef } from "react";
+
+const log_url = 'https://upstox-feed.mkmukul.com/logs'
+export default function AlgoTradnig() {
+    const [algoLogsData, setAlgoLogsData] = useState({})
+    const [isDataUpdate, setIsDataUpdate] = useState(0)
+    const [algoLogs, setAlgoLogs] = useState([])
+    const scrollRef = useRef();
+
+    useEffect(() => {
+      setInterval(() => {
+        fetch(log_url)
+        .then((res) => res.json())
+        .then((data) => {
+          setAlgoLogsData(data)
+          setIsDataUpdate(prev=>prev=prev+1)
+        })
+      }, 1000);
+    },[]);
+      
+    useEffect(() => {
+      if (algoLogsData['status'] === 'success'){
+        if(! algoLogs.length){
+          setAlgoLogs(algoLogsData['alog_logs'])
+        } else {
+          const algoLogs_len = algoLogs.length
+          let last_log = algoLogs[algoLogs_len-1]
+          const new_logs = []
+          for (let i = 0; i < algoLogsData['alog_logs'].length; i++) {
+            const log = algoLogsData['alog_logs'][i];
+            if(log.asctime < last_log.asctime){
+              continue
+            } else {
+              if (log.asctime === last_log.asctime && log.levelname === last_log.levelname && log.message === last_log.message ){
+                continue
+              } else {
+                new_logs.push(log)
+                scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          }
+          setAlgoLogs([
+            ...algoLogs,
+            ...new_logs,
+          ])
+        }
+      }
+    },[isDataUpdate]);
+
+  return (
+    <>
+      <section
+        id="contact"
+        className="mx-auto py-[75px] md:py-[100px] flex flex-col justify-center items-start max-w-[1060px]"
+      >
+        <div className="flex justify-center w-full mt-4 mb-6">
+          <div
+            className={` hidden md:block mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
+          ></div>
+          <h1 className=" text-3xl md:text-4xl font-bold">Algo Trading Logs</h1>
+          <div
+            className={` hidden md:block mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
+          ></div>
+        </div>
+
+        <div className=" bg-gray-900 w-full max-h-screen h-[720px] md:h-[720px] lg:h-[720px] px-1 md:px-2 lg:px-4 py-2 overflow-auto">
+
+        {algoLogs.map((log,ind)=>{
+          const level_color = log.levelname == "INFO" ? "text-green-200 opacity-90" : "text-red-500 font-semibold"
+          const is_scrollRef = algoLogs.length === ind+1
+          return(
+          <div key={ind} className={` text-sm flex ${is_scrollRef?"pb-2":""}`} ref={is_scrollRef ? scrollRef : null}>
+            <div className=" flex-shrink-0 w-36 md:w-56 flex gap-1 justify-between">
+              <span className=" text-blue-200 opacity-90">{log.asctime} </span>
+              <span className={`${level_color} pr-2`}>{`${log.levelname} -`}</span>
+            </div>
+            <span className=" text-gray-100 opacity-90 ">{log.message}</span>
+          </div>
+          )
+        })}
+
+        </div>
+        
+      </section>
+    </>
+  );
+}
