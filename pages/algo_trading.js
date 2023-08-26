@@ -67,9 +67,8 @@ export default function AlgoTradnig() {
 
         {algoLogs.map((log,ind)=>{
           const level_color = log.levelname == "INFO" ? "text-green-200 opacity-90" : "text-red-500 font-semibold"
-          const is_scrollRef = algoLogs.length === ind+1
           return(
-          <div key={ind} className={` text-sm flex ${is_scrollRef?"pb-2":""}`} ref={is_scrollRef ? scrollRef : null}>
+          <div key={ind} className={` text-sm flex`}>
             <div className=" flex-shrink-0 w-36 md:w-56 flex gap-1 justify-between">
               <span className=" text-blue-200 opacity-90">{log.asctime} </span>
               <span className={`${level_color} pr-2`}>{`${log.levelname} -`}</span>
@@ -78,7 +77,7 @@ export default function AlgoTradnig() {
           </div>
           )
         })}
-
+        <div className=" p-2" ref = {scrollRef}></div>
         </div>
         
       </section>
