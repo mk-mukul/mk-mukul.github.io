@@ -5,6 +5,7 @@ export default function AlgoTradnig() {
     const [algoLogsData, setAlgoLogsData] = useState({})
     const [isDataUpdate, setIsDataUpdate] = useState(0)
     const [algoLogs, setAlgoLogs] = useState([])
+    const [scanning, setScanning] = useState('')
     const scrollRef = useRef();
 
     useEffect(() => {
@@ -35,17 +36,22 @@ export default function AlgoTradnig() {
                 continue
               } else {
                 new_logs.push(log)
-                scrollRef.current?.scrollIntoView({ behavior: "smooth" });
               }
             }
           }
-          setAlgoLogs([
-            ...algoLogs,
-            ...new_logs,
-          ])
+          if(new_logs.length){
+            setAlgoLogs([
+              ...algoLogs,
+              ...new_logs,
+            ])
+          }
         }
       }
     },[isDataUpdate]);
+    
+    useEffect(()=>{
+      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [algoLogs])
 
   return (
     <>
@@ -66,10 +72,10 @@ export default function AlgoTradnig() {
         <div className=" bg-gray-900 w-full max-h-screen h-[720px] md:h-[720px] lg:h-[720px] px-1 md:px-2 lg:px-4 py-2 overflow-auto">
 
         {algoLogs.map((log,ind)=>{
-          const level_color = log.levelname == "INFO" ? "text-green-200 opacity-90" : "text-red-500 font-semibold"
+          const level_color = log.levelname == "INFO" ? "text-green-200 opacity-90" : log.levelname == "WARNING" ? "text-orange-300" : "text-red-500 font-semibold"
           return(
           <div key={ind} className={` text-sm flex`}>
-            <div className=" flex-shrink-0 w-36 md:w-56 flex gap-1 justify-between">
+            <div className=" flex-shrink-0 w-40 md:w-60 flex gap-1 justify-between">
               <span className=" text-blue-200 opacity-90">{log.asctime} </span>
               <span className={`${level_color} pr-2`}>{`${log.levelname} -`}</span>
             </div>
@@ -77,7 +83,7 @@ export default function AlgoTradnig() {
           </div>
           )
         })}
-        <div className=" p-2" ref = {scrollRef}></div>
+        <div className="text-gray-100 opacity-75 p-2 text-sm" ref = {scrollRef}>{`Sacnning for new logs...`}</div>
         </div>
         
       </section>
