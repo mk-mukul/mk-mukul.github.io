@@ -82,7 +82,7 @@ export default function AlgoTradnig() {
           </div>
           )
         })}
-        <div className="text-gray-100 opacity-75 p-2 text-sm" ref = {scrollRef}>{`Sacnning for new logs...`}</div>
+        <div className="text-gray-100 opacity-75 p-1 text-sm" ref = {scrollRef}>{`scanning for new logs...`}</div>
         </div>
         
       </section>
