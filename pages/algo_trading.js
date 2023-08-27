@@ -57,7 +57,7 @@ export default function AlgoTradnig() {
     <>
       <section
         id="contact"
-        className="mx-auto py-[75px] md:py-[100px] flex flex-col justify-center items-start max-w-[1060px]"
+        className="mx-auto pt-[75px] pb-1 h-screen md:pt-[100px] flex flex-col justify-center items-start max-w-[1060px]"
       >
         <div className="flex justify-center w-full mt-4 mb-6">
           <div
@@ -69,7 +69,7 @@ export default function AlgoTradnig() {
           ></div>
         </div>
 
-        <div className=" bg-gray-900 w-full max-h-screen h-[720px] md:h-[720px] lg:h-[720px] px-1 md:px-2 lg:px-4 py-2 overflow-auto">
+        <div className=" bg-gray-900 w-full h-fit max-h-full px-1 md:px-2 lg:px-4 py-2 overflow-auto">
 
         {algoLogs.map((log,ind)=>{
           const time_stamp = log.asctime.split(' ')[1].split(',')[0]
