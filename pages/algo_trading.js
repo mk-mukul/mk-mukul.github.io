@@ -63,7 +63,7 @@ export default function AlgoTradnig() {
           <div
             className={` hidden md:block mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
           ></div>
-          <h1 className=" text-3xl md:text-4xl font-bold">Algo Trading Logs</h1>
+          <h1 className=" text-3xl md:text-4xl font-bold">Trading Logs</h1>
           <div
             className={` hidden md:block mx-6 w-[100px] h-[1px] self-center bg-textPrimary`}
           ></div>
