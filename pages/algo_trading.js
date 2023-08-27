@@ -72,12 +72,12 @@ export default function AlgoTradnig() {
         <div className=" bg-gray-900 w-full max-h-screen h-[720px] md:h-[720px] lg:h-[720px] px-1 md:px-2 lg:px-4 py-2 overflow-auto">
 
         {algoLogs.map((log,ind)=>{
-          // log.levelname = 'WARNING'
+          const time_stamp = log.asctime.split(' ')[1].split(',')[0]
           const level_color = log.levelname == "INFO" ? "text-green-200 opacity-90" : log.levelname == "WARNING" ? "text-orange-300" : "text-red-500 font-semibold"
           return(
-          <div key={ind} className={` text-sm flex`}>
-            <span className=" w-20 md:w-40 shrink-0 text-blue-200 opacity-90">{log.asctime} </span>
-            <span className={`${level_color} w-16 md:w-18 shrink-0`}>{`${log.levelname}`}</span>
+          <div key={ind} className={` text-sm`}>
+            <span className=" inline-block w-14 md:w-16 text-blue-200 opacity-90 mr-1">{time_stamp} </span>
+            <span className={`${level_color} inline-block md:w-16 mr-1`}>{`${log.levelname}`}</span>
             <span className=" text-gray-100 opacity-90 ">{`- ${log.message}`}</span>
           </div>
           )
