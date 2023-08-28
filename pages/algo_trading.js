@@ -30,7 +30,9 @@ export default function AlgoTradnig() {
     useEffect(() => {
       if (algoLogsData['status'] === 'success'){
         if(! algoLogs.length){
-          setAlgoLogs(algoLogsData['alog_logs'])
+          if (algoLogsData['alog_logs'].length){
+            setAlgoLogs(algoLogsData['alog_logs'])
+          }
         } else {
           const algoLogs_len = algoLogs.length
           let last_log = algoLogs[algoLogs_len-1]
@@ -77,12 +79,12 @@ export default function AlgoTradnig() {
           ></div>
         </div>
 
-        <div className=" w-full block relative">
+        {algoLogs.length?<div className=" w-full block relative">
           <input className={`${search?" bg-gray-600":" bg-gray-700"} z-50 text-white px-2 py-1 absolute right-2 top-2 rounded border-0 focus:outline-none`}
           placeholder="search logs"
           onChange={(e)=>{setSearch(e.target.value)}}
           />
-        </div>
+        </div>:<></>}
         <div className=" z-0 rounded bg-gray-900 w-full h-fit max-h-full px-1 md:px-2 lg:px-4 py-2 overflow-auto">
 
         {algoLogs.map((log,ind)=>{
