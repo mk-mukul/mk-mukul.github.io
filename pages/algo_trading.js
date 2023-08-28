@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
-const log_url = 'https://upstox-feed.mkmukul.com/logs'
+const logs_url = 'https://upstox-feed.mkmukul.com/logs'
+const all_logs_url = 'https://upstox-feed.mkmukul.com/all-logs'
 export default function AlgoTradnig() {
     const [algoLogsData, setAlgoLogsData] = useState({})
     const [isDataUpdate, setIsDataUpdate] = useState(0)
@@ -10,8 +11,14 @@ export default function AlgoTradnig() {
     const scrollRef = useRef();
 
     useEffect(() => {
+      fetch(all_logs_url)
+      .then((res) => res.json())
+      .then((data) => {
+        setAlgoLogsData(data)
+        setIsDataUpdate(prev=>prev=prev+1)
+      })
       setInterval(() => {
-        fetch(log_url)
+        fetch(logs_url)
         .then((res) => res.json())
         .then((data) => {
           setAlgoLogsData(data)
