@@ -90,7 +90,7 @@ export default function AlgoTradnig() {
           const level_color = log.levelname == "INFO" ? "text-green-200 opacity-90" : log.levelname == "WARNING" ? "text-orange-300" : "text-red-500 font-semibold"
           if(search){
             const search_string = `${time_stamp} ${log.levelname} ${log.message}`
-            if(!search_string.toLowerCase().includes(search)){
+            if(!search_string.toLowerCase().includes(search.toLowerCase())){
               return<></>
             }
           }
