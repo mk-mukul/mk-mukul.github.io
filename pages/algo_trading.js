@@ -6,6 +6,7 @@ export default function AlgoTradnig() {
     const [isDataUpdate, setIsDataUpdate] = useState(0)
     const [algoLogs, setAlgoLogs] = useState([])
     const [scanning, setScanning] = useState('')
+    const [search, setSearch] = useState('')
     const scrollRef = useRef();
 
     useEffect(() => {
@@ -69,11 +70,23 @@ export default function AlgoTradnig() {
           ></div>
         </div>
 
-        <div className=" bg-gray-900 w-full h-fit max-h-full px-1 md:px-2 lg:px-4 py-2 overflow-auto">
+        <div className=" w-full block relative">
+          <input className={`${search?"opacity-95":"opacity-80"} text-gray-900 px-2 py-1 absolute right-2 top-2 rounded border-0 focus:outline-none`}
+          placeholder="search logs"
+          onChange={(e)=>{setSearch(e.target.value)}}
+          />
+        </div>
+        <div className=" rounded bg-gray-900 w-full h-fit max-h-full px-1 md:px-2 lg:px-4 py-2 overflow-auto">
 
         {algoLogs.map((log,ind)=>{
           const time_stamp = log.asctime.split(' ')[1].split(',')[0]
           const level_color = log.levelname == "INFO" ? "text-green-200 opacity-90" : log.levelname == "WARNING" ? "text-orange-300" : "text-red-500 font-semibold"
+          if(search){
+            const search_string = `${time_stamp} ${log.levelname} ${log.message}`
+            if(!search_string.toLowerCase().includes(search)){
+              return<></>
+            }
+          }
           return(
           <div key={ind} className={` text-sm`}>
             <span className=" inline-block w-14 md:w-16 text-blue-200 opacity-90 mr-1">{time_stamp} </span>
@@ -82,7 +95,7 @@ export default function AlgoTradnig() {
           </div>
           )
         })}
-        <div className="text-gray-100 opacity-75 p-1 text-sm" ref = {scrollRef}>{`scanning for new logs...`}</div>
+        <div className=" text-gray-100 opacity-75 p-1 text-sm" ref = {scrollRef}>{`scanning for new logs...`}</div>
         </div>
         
       </section>
