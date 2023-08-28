@@ -71,7 +71,7 @@ export default function AlgoTradnig() {
         </div>
 
         <div className=" w-full block relative">
-          <input className={`${search?"opacity-95":"opacity-80"} text-gray-900 px-2 py-1 absolute right-2 top-2 rounded border-0 focus:outline-none`}
+          <input className={`${search?"":"opacity-80 z-50"} text-gray-900 px-2 py-1 absolute right-2 top-2 rounded border-0 focus:outline-none`}
           placeholder="search logs"
           onChange={(e)=>{setSearch(e.target.value)}}
           />
