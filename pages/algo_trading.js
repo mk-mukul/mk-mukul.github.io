@@ -1,67 +1,76 @@
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from 'next/router'
 
 const logs_url = 'https://upstox-feed.mkmukul.com/logs'
 const all_logs_url = 'https://upstox-feed.mkmukul.com/all-logs'
 export default function AlgoTradnig() {
-    const [algoLogsData, setAlgoLogsData] = useState({})
-    const [isDataUpdate, setIsDataUpdate] = useState(0)
-    const [algoLogs, setAlgoLogs] = useState([])
-    const [scanning, setScanning] = useState('')
-    const [search, setSearch] = useState('')
-    const scrollRef = useRef();
+  const router = useRouter();
+  const [algo_id, setAlgoSecret] = useState('')
+  const [algoLogsData, setAlgoLogsData] = useState({})
+  const [isDataUpdate, setIsDataUpdate] = useState(0)
+  const [algoLogs, setAlgoLogs] = useState([])
+  const [scanning, setScanning] = useState(true)
+  const [search, setSearch] = useState('')
+  const scrollRef = useRef();
 
-    useEffect(() => {
-      fetch(all_logs_url)
-      .then((res) => res.json())
-      .then((data) => {
-        setAlgoLogsData(data)
-        setIsDataUpdate(prev=>prev=prev+1)
-      })
+  useEffect(() => {
+    setAlgoSecret(router.query.algo_id)
+  },[router]);
+
+  useEffect(() => {
+    fetch(`${all_logs_url}?algo_id=${algo_id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setAlgoLogsData(data)
+      setIsDataUpdate(prev=>prev=prev+1)
+    })
+    if (algo_id) {
       setInterval(() => {
-        fetch(logs_url)
+        fetch(`${logs_url}?algo_id=${algo_id}`)
         .then((res) => res.json())
         .then((data) => {
           setAlgoLogsData(data)
           setIsDataUpdate(prev=>prev=prev+1)
         })
       }, 1000);
-    },[]);
-      
-    useEffect(() => {
-      if (algoLogsData['status'] === 'success'){
-        if(! algoLogs.length){
-          if (algoLogsData['alog_logs'].length){
-            setAlgoLogs(algoLogsData['alog_logs'])
-          }
-        } else {
-          const algoLogs_len = algoLogs.length
-          let last_log = algoLogs[algoLogs_len-1]
-          const new_logs = []
-          for (let i = 0; i < algoLogsData['alog_logs'].length; i++) {
-            const log = algoLogsData['alog_logs'][i];
-            if(log.asctime < last_log.asctime){
+    }
+  },[algo_id]);
+
+  useEffect(() => {
+    if (algoLogsData['status'] === 'success'){
+      if(! algoLogs.length){
+        if (algoLogsData['logs'].length){
+          setAlgoLogs(algoLogsData['logs'])
+        }
+      } else {
+        const algoLogs_len = algoLogs.length
+        let last_log = algoLogs[algoLogs_len-1]
+        const new_logs = []
+        for (let i = 0; i < algoLogsData['logs'].length; i++) {
+          const log = algoLogsData['logs'][i];
+          if(log.asctime < last_log.asctime){
+            continue
+          } else {
+            if (log.asctime === last_log.asctime && log.levelname === last_log.levelname && log.message === last_log.message ){
               continue
             } else {
-              if (log.asctime === last_log.asctime && log.levelname === last_log.levelname && log.message === last_log.message ){
-                continue
-              } else {
-                new_logs.push(log)
-              }
+              new_logs.push(log)
             }
           }
-          if(new_logs.length){
-            setAlgoLogs([
-              ...algoLogs,
-              ...new_logs,
-            ])
-          }
+        }
+        if(new_logs.length){
+          setAlgoLogs([
+            ...algoLogs,
+            ...new_logs,
+          ])
         }
       }
-    },[isDataUpdate]);
-    
-    useEffect(()=>{
-      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, [algoLogs])
+    }
+  },[isDataUpdate]);
+
+  useEffect(()=>{
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [algoLogs])
 
   return (
     <>
