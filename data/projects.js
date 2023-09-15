@@ -2,7 +2,7 @@
 const projects = [
   {
     title: "Algorithmic Trading Application",
-    projectLink: "/algo_trading?algo_id=testingLogs",
+    projectLink: "/algo_trading?algo_id=testing",
     img: {
       link: "/img/algotrading-result.png",
       alt: "algotrading-result",
@@ -18,7 +18,7 @@ const projects = [
     links: [
       {
         for: "website",
-        link: "/algo_trading?algo_id=testingLogs"
+        link: "/algo_trading?algo_id=testing"
       },
     ],
   },
