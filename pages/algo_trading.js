@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from 'next/router'
 
-const logs_url = 'https://upstox-feed.mkmukul.com/logs'
-const all_logs_url = 'https://upstox-feed.mkmukul.com/all-logs'
+const default_api_url = 'https://upstox-feed.mkmukul.com'
+
 export default function AlgoTradnig() {
   const router = useRouter();
   const [algo_id, setAlgoSecret] = useState('')
+  const [api_url, setApiURL] = useState('')
   const [algoLogsData, setAlgoLogsData] = useState({})
   const [isDataUpdate, setIsDataUpdate] = useState(0)
   const [algoLogs, setAlgoLogs] = useState([])
@@ -14,19 +15,27 @@ export default function AlgoTradnig() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    setAlgoSecret(router.query.algo_id)
+    if(router.query.algo_id){
+      setAlgoSecret(router.query.algo_id)
+      if(router.query.api_url){
+        setApiURL(router.query.api_url)
+      } else {
+        setApiURL(default_api_url)
+      }
+      console.log(router.query)
+    }
   },[router]);
 
   useEffect(() => {
-    fetch(`${all_logs_url}?algo_id=${algo_id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      setAlgoLogsData(data)
-      setIsDataUpdate(prev=>prev=prev+1)
-    })
-    if (algo_id) {
+    if (algo_id && api_url) {
+      fetch(`${api_url}/all-logs?algo_id=${algo_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAlgoLogsData(data)
+        setIsDataUpdate(prev=>prev=prev+1)
+      })
       setInterval(() => {
-        fetch(`${logs_url}?algo_id=${algo_id}`)
+        fetch(`${api_url}/logs?algo_id=${algo_id}`)
         .then((res) => res.json())
         .then((data) => {
           setAlgoLogsData(data)
@@ -34,7 +43,7 @@ export default function AlgoTradnig() {
         })
       }, 1000);
     }
-  },[algo_id]);
+  },[algo_id, api_url]);
 
   useEffect(() => {
     if (algoLogsData['status'] === 'success'){
