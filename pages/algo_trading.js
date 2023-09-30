@@ -22,7 +22,9 @@ export default function AlgoTradnig() {
       } else {
         setApiURL(default_api_url)
       }
-      console.log(router.query)
+      router.replace({
+        pathname: '/algo_trading/'
+      })
     }
   },[router]);
 
