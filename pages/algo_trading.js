@@ -96,7 +96,7 @@ export default function AlgoTradnig() {
         body: JSON.stringify({
           algo_secret: algo_secret,
           algo_id: algo_id,
-          take_profit: "take_profit_now",
+          exit: "exit_now",
         })
       }
       fetch(`${api_url}/ext-cmd`, reqOpn)
@@ -109,6 +109,7 @@ export default function AlgoTradnig() {
         })
     }
   }
+
   const takeProfitNow = ()=>{
     if (api_url) {
       const reqOpn = {
@@ -117,7 +118,7 @@ export default function AlgoTradnig() {
         body: JSON.stringify({
           algo_secret: algo_secret,
           algo_id: algo_id,
-          exit: "exit_now",
+          take_profit: "take_profit_now",
         })
       }
       fetch(`${api_url}/ext-cmd`, reqOpn)
