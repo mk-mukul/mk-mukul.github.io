@@ -1,26 +1,31 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from 'next/router'
+import Button from "../components/Button";
 
 const default_api_url = 'https://upstox-feed.mkmukul.com'
 
 export default function AlgoTradnig() {
   const router = useRouter();
-  const [algo_id, setAlgoSecret] = useState('')
+  const [algo_secret, setAlgoSecret] = useState('')
+  const [algo_id, setAlgoID] = useState('')
   const [api_url, setApiURL] = useState('')
   const [algoLogsData, setAlgoLogsData] = useState({})
   const [isDataUpdate, setIsDataUpdate] = useState(0)
   const [algoLogs, setAlgoLogs] = useState([])
-  const [scanning, setScanning] = useState(true)
+  const [showButton, setShowButton] = useState(false)
   const [search, setSearch] = useState('')
   const scrollRef = useRef();
 
   useEffect(() => {
     if(router.query.algo_id){
-      setAlgoSecret(router.query.algo_id)
+      setAlgoID(router.query.algo_id)
       if(router.query.api_url){
         setApiURL(router.query.api_url)
       } else {
         setApiURL(default_api_url)
+      }
+      if(router.query.algo_secret){
+        setAlgoSecret(router.query.algo_secret)
       }
       // router.replace({
       //   pathname: '/algo_trading/'
@@ -83,6 +88,49 @@ export default function AlgoTradnig() {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [algoLogs])
 
+  const exitNow = ()=>{
+    if (api_url) {
+      const reqOpn = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          algo_secret: algo_secret,
+          algo_id: algo_id,
+          take_profit: "take_profit_now",
+        })
+      }
+      fetch(`${api_url}/ext-cmd`, reqOpn)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          if(data['status'] === 'success'){
+            setShowButton(false)
+          }
+        })
+    }
+  }
+  const takeProfitNow = ()=>{
+    if (api_url) {
+      const reqOpn = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          algo_secret: algo_secret,
+          algo_id: algo_id,
+          exit: "exit_now",
+        })
+      }
+      fetch(`${api_url}/ext-cmd`, reqOpn)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          if(data['status'] === 'success'){
+            setShowButton(false)
+          }
+        })
+    }
+  }
+
   return (
     <>
       <section
@@ -130,6 +178,20 @@ export default function AlgoTradnig() {
         <div className=" text-gray-100 opacity-75 p-1 text-sm" ref = {scrollRef}>{`scanning for new logs...`}</div>
         </div>
         
+        {algo_secret?<div className=" p-1 gap-2 w-full grid grid-cols-1 md:grid-cols-2 justify-center">
+          <div className=" flex" onClick={()=>setShowButton(prev=>!prev)}>
+            <Button name="Toggle Button"/>
+          </div>
+          <div className=" gap-2 flex justify-end">
+            {showButton?<><div onClick={()=>takeProfitNow()}>
+              <Button name="Take Profit"/>
+            </div>
+            <div onClick={()=>exitNow()}>
+              <Button name="Exit"/>
+            </div></>:<></>}
+          </div>
+        </div>:<></>}
+
       </section>
     </>
   );
