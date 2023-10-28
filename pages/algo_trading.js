@@ -88,7 +88,7 @@ export default function AlgoTradnig() {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [algoLogs])
 
-  const exitNow = ()=>{
+  const sendCommand = (command)=>{
     if (api_url) {
       const reqOpn = {
         method: 'POST',
@@ -96,29 +96,7 @@ export default function AlgoTradnig() {
         body: JSON.stringify({
           algo_secret: algo_secret,
           algo_id: algo_id,
-          exit: "exit_now",
-        })
-      }
-      fetch(`${api_url}/ext-cmd`, reqOpn)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data)
-          if(data['status'] === 'success'){
-            setShowButton(false)
-          }
-        })
-    }
-  }
-
-  const takeProfitNow = ()=>{
-    if (api_url) {
-      const reqOpn = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          algo_secret: algo_secret,
-          algo_id: algo_id,
-          take_profit: "take_profit_now",
+          cmd: command,
         })
       }
       fetch(`${api_url}/ext-cmd`, reqOpn)
@@ -184,12 +162,14 @@ export default function AlgoTradnig() {
             <Button name="Toggle Button"/>
           </div>
           <div className=" gap-2 flex justify-end">
-            {showButton?<><div onClick={()=>takeProfitNow()}>
-              <Button name="Take Profit"/>
-            </div>
-            <div onClick={()=>exitNow()}>
-              <Button name="Exit"/>
-            </div></>:<></>}
+            {showButton?<>
+              <div onClick={()=>sendCommand("take_profit_now")}>
+                <Button name="Take Profit"/>
+              </div>
+              <div onClick={()=>sendCommand("exit_now")}>
+                <Button name="Exit"/>
+              </div>
+            </>:<></>}
           </div>
         </div>:<></>}
 
