@@ -89,7 +89,7 @@ export default function AlgoTradnig() {
   }, [algoLogs])
 
   const sendCommand = (command)=>{
-    if (api_url) {
+    if (api_url && algo_secret && algo_id) {
       const reqOpn = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -157,21 +157,29 @@ export default function AlgoTradnig() {
         <div className=" text-gray-100 opacity-75 p-1 text-sm" ref = {scrollRef}>{`scanning for new logs...`}</div>
         </div>
         
-        {algo_secret?<div className=" p-1 gap-2 w-full grid grid-cols-1 md:grid-cols-2 justify-center">
-          <div className=" flex" onClick={()=>setShowButton(prev=>!prev)}>
-            <Button name="Toggle Button"/>
+        <div className=" p-1 w-full">
+        {algo_secret?
+          <div className=" bg-white w-fit" onClick={()=>setShowButton(prev=>!prev)}>
+            <Button name={showButton?"Hide Button":"Show Button"}/>
           </div>
-          <div className=" gap-2 flex justify-end">
-            {showButton?<>
+        :<></>}
+        {showButton?<>
+          <div className=" p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4">
               <div onClick={()=>sendCommand("take_profit_now")}>
                 <Button name="Take Profit"/>
               </div>
               <div onClick={()=>sendCommand("exit_now")}>
                 <Button name="Exit"/>
               </div>
-            </>:<></>}
-          </div>
-        </div>:<></>}
+              <div onClick={()=>sendCommand("pause_now")}>
+                <Button name="Pause"/>
+              </div>
+              <div onClick={()=>sendCommand("resume_now")}>
+                <Button name="Resume"/>
+              </div>
+            </div>
+          </>:<></>}
+        </div>
 
       </section>
     </>

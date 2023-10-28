@@ -7,16 +7,16 @@ export default function Document() {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content="Mukul Raj" />
         <meta name="title" content="Mukul Raj" />
-        <meta name="keywords" content="mukul raj, portfolio website, web developer, iit gandhinagar" />
+        <meta name="keywords" content="mukul raj, portfolio website, iit gandhinagar" />
         <meta name="robots" content="index, follow" />
         <meta name="image" content="/img/og.png" />
         <meta property="og:title" content="Mukul Raj" />
-        <meta name="og:description" content="Mukul Raj is a third-year undergraduate at IIT Gandhinagar." />
+        <meta name="og:description" content="Mukul Raj is a senior undergraduate at IIT Gandhinagar." />
         <meta name="og:image" content="/img/og.png" />
         <meta property="og:type" content="website" />
         <meta name="twitter:creator" content="@mk_mucool" />
         <meta name="twitter:title" content="Mukul Raj" />
-        <meta name="twitter:description" content="Mukul Raj is a third-year undergraduate at IIT Gandhinagar." />
+        <meta name="twitter:description" content="Mukul Raj is a senior undergraduate at IIT Gandhinagar." />
         <meta name="twitter:image" content="/img/og.png" />
 
 
