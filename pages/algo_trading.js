@@ -86,7 +86,7 @@ export default function AlgoTradnig() {
 
   useEffect(()=>{
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [algoLogs])
+  }, [algoLogs, showButton])
 
   const sendCommand = (command)=>{
     if (api_url && algo_secret && algo_id) {
@@ -129,7 +129,7 @@ export default function AlgoTradnig() {
         <div className=" w-full rounded-t font-semibold bg-gray-900 flex justify-center">
         <div className=" px-2 self-center text-gray-50 pt-1 text-lg md:text-2xl">{`Algo ID = ${algo_id}`}</div>
         </div>
-        {algoLogs.length?<div className=" w-full block relative">
+        {algoLogs.length > 10?<div className=" w-full block relative">
           <input className={`${search?" bg-gray-600":" bg-gray-700"} z-10 text-white px-2 py-1 absolute right-2 top-2 rounded border-0 focus:outline-none`}
           placeholder="search logs"
           onChange={(e)=>{setSearch(e.target.value)}}
@@ -164,12 +164,15 @@ export default function AlgoTradnig() {
           </div>
         :<></>}
         {showButton?<>
-          <div className=" p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4">
+          <div className=" p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
               <div onClick={()=>sendCommand("take_profit_now")}>
                 <Button name="Take Profit"/>
               </div>
               <div onClick={()=>sendCommand("exit_now")}>
                 <Button name="Exit"/>
+              </div>
+              <div onClick={()=>sendCommand("square_off_now")}>
+                <Button name="Square Off"/>
               </div>
               <div onClick={()=>sendCommand("pause_now")}>
                 <Button name="Pause"/>
