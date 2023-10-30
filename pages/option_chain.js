@@ -38,7 +38,7 @@ export default function AlgoTradnig() {
     if(tradingsymbol){
         setInterval(() => {
             getOptionChain();
-        }, 5000);
+        }, 1000);
     }
   },[tradingsymbol]);
 
@@ -143,11 +143,11 @@ export default function AlgoTradnig() {
                               <div>{ce_option.eFeedDetails.oi - ce_option.eFeedDetails.poi}</div>
                             </div>
                             <div className=" px-1 flex items-center justify-start">{ce_option.eFeedDetails.vtt}</div>
-                            <div className=" px-1 flex items-center justify-start">{ce_option.ltpc.cp}</div>
+                            <div className=" px-1 flex items-center justify-start">{ce_option.ltpc.ltp}</div>
                         </div>
                         <div className=" flex items-center justify-center">{strike}</div>
                         <div className=" bg-white bg-opacity-20 items-center grid grid-cols-3 col-start-7 col-end-12">
-                            <div className=" px-1 flex items-center justify-end">{pe_option.ltpc.cp}</div>
+                            <div className=" px-1 flex items-center justify-end">{pe_option.ltpc.ltp}</div>
                             <div className=" px-1 flex items-center justify-end">{pe_option.eFeedDetails.vtt}</div>
                             <div className=" px-1 flex flex-col items-end">
                               <div>{pe_option.eFeedDetails.oi}</div>

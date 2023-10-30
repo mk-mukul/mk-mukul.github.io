@@ -168,9 +168,6 @@ export default function AlgoTradnig() {
               <div onClick={()=>sendCommand("take_profit_now")}>
                 <Button name="Take Profit"/>
               </div>
-              <div onClick={()=>sendCommand("exit_now")}>
-                <Button name="Exit"/>
-              </div>
               <div onClick={()=>sendCommand("square_off_now")}>
                 <Button name="Square Off"/>
               </div>
