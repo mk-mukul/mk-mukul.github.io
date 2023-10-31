@@ -92,10 +92,14 @@ export default function AlgoTradnig() {
   }, [algoLogs, showButton])
   
   useEffect(()=>{
+    setIsChangeCmdVar(prev=>showButton?false:prev)
+  }, [showButton])
+  
+  useEffect(()=>{
     setCmdVarName('')
     setCmdVarValue('')
-    setIsChangeCmdVar(false)
-  }, [showButton])
+    setShowButton(prev=>isChangeCmdVar?false:prev)
+  }, [isChangeCmdVar])
 
   const sendCommand = (command, data={})=>{
     if (api_url && algo_secret && algo_id) {
@@ -171,11 +175,19 @@ export default function AlgoTradnig() {
         </div>
         
         <div className=" p-1 w-full">
-        {algo_secret?
-          <div className=" bg-white w-fit" onClick={()=>setShowButton(prev=>!prev)}>
-            <Button name={showButton?"Hide Button":"Show Button"}/>
+        {algo_secret?<>
+          <div className=" w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+            <div onClick={()=>setShowButton(prev=>!prev)}>
+              <Button name={showButton?"Hide Button":"Show Button"}/>
+            </div>
+            <div onClick={()=>setIsChangeCmdVar(prev=>!prev)}>
+              <Button name="Change Value"/>
+            </div>
+            <div onClick={()=>sendCommand("show_pnl")}>
+              <Button name="PnL(MTM)"/>
+            </div>
           </div>
-        :<></>}
+        </>:<></>}
         {showButton?<>
           <div className=" p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
               <div onClick={()=>sendCommand("take_profit_now")}>
@@ -190,30 +202,29 @@ export default function AlgoTradnig() {
               <div onClick={()=>sendCommand("resume_now")}>
                 <Button name="Resume"/>
               </div>
-              <div onClick={()=>setIsChangeCmdVar(prev=>!prev)}>
-                <Button name="Change Value"/>
-              </div>
             </div>
-            {isChangeCmdVar?<>
-              <div className=" m-1 p-1 grid gap-1 border-2 border-textSecondary rounded w-fit">
-                <input className={`${cmdVarName?" ":" "} bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
-                placeholder="variable name"
-                value={cmdVarName}
-                onChange={(e)=>{setCmdVarName(e.target.value)}}
-                />
-                <input className={` bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
-                placeholder="value"
-                value={cmdVarValue}
-                onChange={(e)=>{setCmdVarValue(e.target.value)}}
-                />
-                {showButton&&cmdVarName&&cmdVarValue?<>
-                    <div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
-                      <Button name="Send Value"/>
-                    </div>
-                  </>:<></>}
-              </div>
-            </>:<></>}
           </>:<></>}
+
+          {isChangeCmdVar?<>
+            <div className=" m-1 p-1 grid gap-1 border-2 border-textSecondary rounded w-fit">
+              <input className={`${cmdVarName?" ":" "} bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
+              placeholder="variable name"
+              value={cmdVarName}
+              onChange={(e)=>{setCmdVarName(e.target.value)}}
+              />
+              <input className={` bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
+              placeholder="value"
+              value={cmdVarValue}
+              onChange={(e)=>{setCmdVarValue(e.target.value)}}
+              />
+              {cmdVarName&&cmdVarValue?<>
+                  <div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
+                    <Button name="Send Value"/>
+                  </div>
+                </>:<></>}
+            </div>
+          </>:<></>}
+
         </div>
 
       </section>
