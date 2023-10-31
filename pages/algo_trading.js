@@ -13,6 +13,9 @@ export default function AlgoTradnig() {
   const [isDataUpdate, setIsDataUpdate] = useState(0)
   const [algoLogs, setAlgoLogs] = useState([])
   const [showButton, setShowButton] = useState(false)
+  const [isChangeCmdVar, setIsChangeCmdVar] = useState(false)
+  const [cmdVarName, setCmdVarName] = useState('')
+  const [cmdVarValue, setCmdVarValue] = useState('')
   const [search, setSearch] = useState('')
   const scrollRef = useRef();
 
@@ -87,8 +90,14 @@ export default function AlgoTradnig() {
   useEffect(()=>{
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [algoLogs, showButton])
+  
+  useEffect(()=>{
+    setCmdVarName('')
+    setCmdVarValue('')
+    setIsChangeCmdVar(false)
+  }, [showButton])
 
-  const sendCommand = (command)=>{
+  const sendCommand = (command, data={})=>{
     if (api_url && algo_secret && algo_id) {
       const reqOpn = {
         method: 'POST',
@@ -97,6 +106,7 @@ export default function AlgoTradnig() {
           algo_secret: algo_secret,
           algo_id: algo_id,
           cmd: command,
+          data:data,
         })
       }
       fetch(`${api_url}/ext-cmd`, reqOpn)
@@ -105,6 +115,9 @@ export default function AlgoTradnig() {
           console.log(data)
           if(data['status'] === 'success'){
             setShowButton(false)
+            setCmdVarName('')
+            setCmdVarValue('')
+            setIsChangeCmdVar(false)
           }
         })
     }
@@ -177,7 +190,29 @@ export default function AlgoTradnig() {
               <div onClick={()=>sendCommand("resume_now")}>
                 <Button name="Resume"/>
               </div>
+              <div onClick={()=>setIsChangeCmdVar(prev=>!prev)}>
+                <Button name="Change Value"/>
+              </div>
             </div>
+            {isChangeCmdVar?<>
+              <div className=" m-1 p-1 grid gap-1 border-2 rounded w-[240px]">
+                <input className={`${cmdVarName?" ":" "} bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
+                placeholder="variable name"
+                value={cmdVarName}
+                onChange={(e)=>{setCmdVarName(e.target.value)}}
+                />
+                <input className={` bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
+                placeholder="value"
+                value={cmdVarValue}
+                onChange={(e)=>{setCmdVarValue(e.target.value)}}
+                />
+                {showButton&&cmdVarName&&cmdVarValue?<>
+                    <div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
+                      <Button name="Send Value"/>
+                    </div>
+                  </>:<></>}
+              </div>
+            </>:<></>}
           </>:<></>}
         </div>
 
