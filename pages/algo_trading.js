@@ -195,7 +195,7 @@ export default function AlgoTradnig() {
               </div>
             </div>
             {isChangeCmdVar?<>
-              <div className=" m-1 p-1 grid gap-1 border-2 rounded w-[240px]">
+              <div className=" m-1 p-1 grid gap-1 border-2 border-textSecondary rounded w-[240px]">
                 <input className={`${cmdVarName?" ":" "} bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
                 placeholder="variable name"
                 value={cmdVarName}
