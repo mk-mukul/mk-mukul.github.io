@@ -209,6 +209,9 @@ export default function AlgoTradnig() {
 
         {isChangeCmdVar?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+              <div onClick={()=>setCmdVarName("interval")}>
+                <Button name="interval"/>
+              </div>
               <div onClick={()=>setCmdVarName("trade_type")}>
                 <Button name="trade_type"/>
               </div>
@@ -234,6 +237,23 @@ export default function AlgoTradnig() {
               </div>
               <div onClick={()=>setCmdVarValue("CLEAR")}>
                 <Button name="CLEAR"/>
+              </div>
+            </div>
+          </>:<></>}
+
+        {cmdVarName==='interval'?<>
+          <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+              <div onClick={()=>setCmdVarValue("1")}>
+                <Button name="1 min"/>
+              </div>
+              <div onClick={()=>setCmdVarValue("3")}>
+                <Button name="3 min"/>
+              </div>
+              <div onClick={()=>setCmdVarValue("5")}>
+                <Button name="5 min"/>
+              </div>
+              <div onClick={()=>setCmdVarValue("15")}>
+                <Button name="15 min"/>
               </div>
             </div>
           </>:<></>}
