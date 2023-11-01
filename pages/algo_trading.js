@@ -13,7 +13,8 @@ export default function AlgoTradnig() {
   const [isDataUpdate, setIsDataUpdate] = useState(0)
   const [algoLogs, setAlgoLogs] = useState([])
   const [showButton, setShowButton] = useState(false)
-  const [isChangeCmdVar, setIsChangeCmdVar] = useState(false)
+  const [isUpdateTrade, setIsUpdateTrade] = useState(false)
+  const [isUpdateStrategy, setIsUpdateStrategy] = useState(false)
   const [cmdVarName, setCmdVarName] = useState('')
   const [cmdVarValue, setCmdVarValue] = useState('')
   const [search, setSearch] = useState('')
@@ -89,17 +90,14 @@ export default function AlgoTradnig() {
 
   useEffect(()=>{
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [algoLogs, showButton])
-  
-  useEffect(()=>{
-    setIsChangeCmdVar(prev=>showButton?false:prev)
-  }, [showButton])
+  }, [algoLogs, showButton, isUpdateStrategy, isUpdateTrade, cmdVarName, cmdVarValue])
   
   useEffect(()=>{
     setCmdVarName('')
     setCmdVarValue('')
-    setShowButton(prev=>isChangeCmdVar?false:prev)
-  }, [isChangeCmdVar])
+    setIsUpdateStrategy(false)
+    setIsUpdateTrade(false)
+  }, [showButton])
 
   const sendCommand = (command, data={})=>{
     if (api_url && algo_secret && algo_id) {
@@ -121,7 +119,6 @@ export default function AlgoTradnig() {
             setShowButton(false)
             setCmdVarName('')
             setCmdVarValue('')
-            setIsChangeCmdVar(false)
           }
         })
     }
@@ -180,9 +177,6 @@ export default function AlgoTradnig() {
             <div onClick={()=>setShowButton(prev=>!prev)}>
               <Button name={showButton?"Hide Button":"Show Button"}/>
             </div>
-            <div onClick={()=>setIsChangeCmdVar(prev=>!prev)}>
-              <Button name="Change Value"/>
-            </div>
             <div onClick={()=>sendCommand("show_pnl")}>
               <Button name="PnL(MTM)"/>
             </div>
@@ -191,56 +185,54 @@ export default function AlgoTradnig() {
 
         {showButton?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-              <div onClick={()=>sendCommand("take_profit_now")}>
-                <Button name="Take Profit"/>
-              </div>
-              <div onClick={()=>sendCommand("square_off_now")}>
-                <Button name="Square Off"/>
-              </div>
-              <div onClick={()=>sendCommand("pause_now")}>
-                <Button name="Pause"/>
-              </div>
-              <div onClick={()=>sendCommand("resume_now")}>
-                <Button name="Resume"/>
-              </div>
+            <div onClick={()=>setIsUpdateStrategy(prev=>!prev)}>
+              <Button name="Update Strategy"/>
             </div>
-          </>:<></>}
-          
+            <div onClick={()=>setIsUpdateTrade(prev=>!prev)}>
+              <Button name="Update Trade"/>
+            </div>
+          </div>
+        </>:<></>}
 
-        {isChangeCmdVar?<>
+        {isUpdateStrategy?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+            {algo_id==="manual_trading"?<>
               <div onClick={()=>setCmdVarName("interval")}>
-                <Button name="interval"/>
+                <Button name="Change Interval"/>
               </div>
               <div onClick={()=>setCmdVarName("trade_type")}>
-                <Button name="trade_type"/>
+                <Button name="Change Trade Type"/>
               </div>
-              <div onClick={()=>setCmdVarName("sl")}>
-                <Button name="sl"/>
-              </div>
-              <div onClick={()=>setCmdVarName("target")}>
-                <Button name="target"/>
-              </div>
-              <div onClick={()=>setCmdVarName("target2")}>
-                <Button name="target2"/>
-              </div>
+            </>:<></>}
+            <div onClick={()=>sendCommand("pause_now")}>
+              <Button name="Pause"/>
             </div>
-          </>:<></>}
+            <div onClick={()=>sendCommand("resume_now")}>
+              <Button name="Resume"/>
+            </div>
+          </div>
+        </>:<></>}
 
-        {cmdVarName==='trade_type'?<>
+        {isUpdateTrade?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-              <div onClick={()=>setCmdVarValue("BUY")}>
-                <Button name="BUY"/>
-              </div>
-              <div onClick={()=>setCmdVarValue("SELL")}>
-                <Button name="SELL"/>
-              </div>
-              <div onClick={()=>setCmdVarValue("CLEAR")}>
-                <Button name="CLEAR"/>
-              </div>
+            <div onClick={()=>setCmdVarName("sl")}>
+              <Button name="Change Stop Loss"/>
             </div>
-          </>:<></>}
-
+            <div onClick={()=>setCmdVarName("target")}>
+              <Button name="Change Target"/>
+            </div>
+            <div onClick={()=>setCmdVarName("target2")}>
+              <Button name="Change Target2"/>
+            </div>
+            <div onClick={()=>sendCommand("take_profit_now")}>
+              <Button name="Take Profit"/>
+            </div>
+            <div onClick={()=>sendCommand("square_off_now")}>
+              <Button name="Square Off"/>
+            </div>
+          </div>
+        </>:<></>}
+        
         {cmdVarName==='interval'?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
               <div onClick={()=>setCmdVarValue("1")}>
@@ -258,7 +250,21 @@ export default function AlgoTradnig() {
             </div>
           </>:<></>}
 
-          {isChangeCmdVar?<>
+          {cmdVarName==='trade_type'?<>
+          <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+              <div onClick={()=>{let data={};data['trade_type']='BUY';sendCommand("change_value",data);}}>
+                <Button name="BUY"/>
+              </div>
+              <div onClick={()=>{let data={};data['trade_type']='SELL';sendCommand("change_value",data);}}>
+                <Button name="SELL"/>
+              </div>
+              <div onClick={()=>{let data={};data['trade_type']='CLEAR';sendCommand("change_value",data);}}>
+                <Button name="CLEAR"/>
+              </div>
+            </div>
+          </>:<></>}
+
+          {cmdVarName&&cmdVarName!='trade_type'?<>
             <div className=" m-1 p-1 grid gap-1 border-[1px] border-textSecondary rounded w-fit">
               <input className={` bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
               placeholder="variable name"
@@ -268,11 +274,12 @@ export default function AlgoTradnig() {
               <input className={` bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
               placeholder="value"
               value={cmdVarValue}
+              type="number"
               onChange={(e)=>{setCmdVarValue(e.target.value)}}
               />
-              <div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
+              {cmdVarName&&cmdVarValue?<div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
                 <Button name="Send Value"/>
-              </div>
+              </div>:<></>}
             </div>
           </>:<></>}
 
