@@ -188,8 +188,9 @@ export default function AlgoTradnig() {
             </div>
           </div>
         </>:<></>}
+
         {showButton?<>
-          <div className=" p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+          <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
               <div onClick={()=>sendCommand("take_profit_now")}>
                 <Button name="Take Profit"/>
               </div>
@@ -204,10 +205,42 @@ export default function AlgoTradnig() {
               </div>
             </div>
           </>:<></>}
+          
+
+        {isChangeCmdVar?<>
+          <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+              <div onClick={()=>setCmdVarName("trade_type")}>
+                <Button name="trade_type"/>
+              </div>
+              <div onClick={()=>setCmdVarName("sl")}>
+                <Button name="sl"/>
+              </div>
+              <div onClick={()=>setCmdVarName("target")}>
+                <Button name="target"/>
+              </div>
+              <div onClick={()=>setCmdVarName("target2")}>
+                <Button name="target2"/>
+              </div>
+            </div>
+          </>:<></>}
+
+        {cmdVarName==='trade_type'?<>
+          <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+              <div onClick={()=>setCmdVarValue("BUY")}>
+                <Button name="BUY"/>
+              </div>
+              <div onClick={()=>setCmdVarValue("SELL")}>
+                <Button name="SELL"/>
+              </div>
+              <div onClick={()=>setCmdVarValue("CLEAR")}>
+                <Button name="CLEAR"/>
+              </div>
+            </div>
+          </>:<></>}
 
           {isChangeCmdVar?<>
-            <div className=" m-1 p-1 grid gap-1 border-2 border-textSecondary rounded w-fit">
-              <input className={`${cmdVarName?" ":" "} bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
+            <div className=" m-1 p-1 grid gap-1 border-[1px] border-textSecondary rounded w-fit">
+              <input className={` bg-bgSecondary text-textPrimary px-2 py-1 rounded border-0 focus:outline-none`}
               placeholder="variable name"
               value={cmdVarName}
               onChange={(e)=>{setCmdVarName(e.target.value)}}
@@ -217,11 +250,9 @@ export default function AlgoTradnig() {
               value={cmdVarValue}
               onChange={(e)=>{setCmdVarValue(e.target.value)}}
               />
-              {cmdVarName&&cmdVarValue?<>
-                  <div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
-                    <Button name="Send Value"/>
-                  </div>
-                </>:<></>}
+              <div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
+                <Button name="Send Value"/>
+              </div>
             </div>
           </>:<></>}
 
