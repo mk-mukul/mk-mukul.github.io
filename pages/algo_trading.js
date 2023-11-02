@@ -183,7 +183,7 @@ export default function AlgoTradnig() {
           </div>
         </>:<></>}
 
-        {showButton?<>
+        {showButton && !isUpdateStrategy && !isUpdateTrade?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
             <div onClick={()=>setIsUpdateStrategy(prev=>!prev)}>
               <Button name="Update Strategy"/>
@@ -194,7 +194,7 @@ export default function AlgoTradnig() {
           </div>
         </>:<></>}
 
-        {isUpdateStrategy?<>
+        {isUpdateStrategy && !cmdVarName?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
             {algo_id==="manual_trading"?<>
               <div onClick={()=>setCmdVarName("interval")}>
