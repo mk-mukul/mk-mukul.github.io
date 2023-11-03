@@ -186,10 +186,10 @@ export default function AlgoTradnig() {
         {showButton && !isUpdateStrategy && !isUpdateTrade?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
             <div onClick={()=>setIsUpdateStrategy(prev=>!prev)}>
-              <Button name="Update Strategy"/>
+              <Button name="Strategy"/>
             </div>
             <div onClick={()=>setIsUpdateTrade(prev=>!prev)}>
-              <Button name="Update Trade"/>
+              <Button name="Trade"/>
             </div>
           </div>
         </>:<></>}
@@ -198,10 +198,10 @@ export default function AlgoTradnig() {
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
             {algo_id==="manual_trading"?<>
               <div onClick={()=>setCmdVarName("interval")}>
-                <Button name="Change Interval"/>
+                <Button name="Interval"/>
               </div>
               <div onClick={()=>setCmdVarName("trade_type")}>
-                <Button name="Change Trade Type"/>
+                <Button name="Trade Type"/>
               </div>
             </>:<></>}
             <div onClick={()=>sendCommand("pause_now")}>
@@ -216,13 +216,13 @@ export default function AlgoTradnig() {
         {isUpdateTrade?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
             <div onClick={()=>setCmdVarName("sl")}>
-              <Button name="Change Stop Loss"/>
+              <Button name="Stop Loss"/>
             </div>
             <div onClick={()=>setCmdVarName("target")}>
-              <Button name="Change Target"/>
+              <Button name="Target"/>
             </div>
             <div onClick={()=>setCmdVarName("target2")}>
-              <Button name="Change Target2"/>
+              <Button name="Target2"/>
             </div>
             <div onClick={()=>sendCommand("take_profit_now")}>
               <Button name="Take Profit"/>
@@ -278,7 +278,7 @@ export default function AlgoTradnig() {
               onChange={(e)=>{setCmdVarValue(e.target.value)}}
               />
               {cmdVarName&&cmdVarValue?<div className=" w-fit" onClick={()=>{let data={};data[cmdVarName]=cmdVarValue;sendCommand("change_value",data);}}>
-                <Button name="Send Value"/>
+                <Button name="Send"/>
               </div>:<></>}
             </div>
           </>:<></>}
