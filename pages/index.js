@@ -42,7 +42,7 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
         <div className="">
           <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold opacity-[60%]">
             {/* I am Finance and Cybersecurity enthusiast. */}
-            I am Software Developer.
+            I am a Software Developer.
           </h2>
         </div>
         <div className=" max-w-lg opacity-90">
