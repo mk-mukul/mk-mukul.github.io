@@ -1,28 +1,6 @@
 
 const projects = [
   {
-    title: "Algorithmic Trading Application",
-    projectLink: "/algo_trading?algo_id=testing",
-    img: {
-      link: "/img/algotrading-result.png",
-      alt: "algotrading-result",
-      // link: "/img/algotrading-light.png",
-      // alt: "algotrading-light",
-      // link: "/img/algotrading-dark.png",
-      // alt: "algotrading-dark",
-      width: 600,
-      height: 360,
-    },
-    desc: ["Python-based algorithmic trading application to monitor and trade on real-time market.", "Incorporated historical data strategy backtesting using the Upstox API.", "Integrated trade record functionality in Google Sheets."],
-    tech: ["Python", "Node.js", "Technical Analysis", "Backtesting", "Data Visualization", "TA-Lib"],
-    links: [
-      {
-        for: "website",
-        link: "/algo_trading?algo_id=testing"
-      },
-    ],
-  },
-  {
     title: "Alpha Chat",
     projectLink: "https://mk-mukul.github.io/website_alpha/",
     img: {
@@ -41,6 +19,28 @@ const projects = [
       {
         for: "website",
         link: "https://mk-mukul.github.io/website_alpha/"
+      },
+    ],
+  },
+  {
+    title: "Algorithmic Trading Application",
+    projectLink: "/algo_trading?algo_id=testing",
+    img: {
+      link: "/img/algotrading-result.png",
+      alt: "algotrading-result",
+      // link: "/img/algotrading-light.png",
+      // alt: "algotrading-light",
+      // link: "/img/algotrading-dark.png",
+      // alt: "algotrading-dark",
+      width: 600,
+      height: 360,
+    },
+    desc: ["Python-based algorithmic trading application to monitor and trade on real-time market.", "Incorporated historical data strategy backtesting using the Upstox API.", "Integrated trade record functionality in Google Sheets."],
+    tech: ["Python", "Node.js", "Technical Analysis", "Backtesting", "Data Visualization", "TA-Lib"],
+    links: [
+      {
+        for: "website",
+        link: "/algo_trading?algo_id=testing"
       },
     ],
   },

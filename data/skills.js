@@ -1,13 +1,14 @@
 const skills = [
-  "AlgoTrading",
+  // "AlgoTrading",
+  "Javascript",
+  "MongoDB",
+  "Node.js",
+  "Expressjs",
+  "React.js",
+  "Next.js",
   "Linux",
   "Shell Scripting",
   "Python",
-  "Javascript",
-  "MongoDB",
-  "Expressjs",
-  "React",
-  "Next.js",
 ];
 
 export default skills;

@@ -41,7 +41,8 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
         </div>
         <div className="">
           <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold opacity-[60%]">
-            I am Finance and Cybersecurity enthusiast.
+            {/* I am Finance and Cybersecurity enthusiast. */}
+            I am Software Developer.
           </h2>
         </div>
         <div className=" max-w-lg opacity-90">
@@ -50,22 +51,22 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
             Gandhinagar. I have an interest in the fields of
             {" "}
             <ParaLink
-              text="Web Development"
+              text="Software Development"
               href="#projects"
               notTarget={true}
             />
-            {", "}
+            {/* {", "} */}
+            {" and "}
             <ParaLink
               text="Cyber Security"
               href="#projects"
               notTarget={true}
             />
-            {" and "}
-            <ParaLink
+            {/* <ParaLink
               text="Finance"
               href="#projects"
               notTarget={true}
-            />
+            /> */}
           </p>
         </div>
         <a className=" mt-10" href="https://drive.google.com/file/d/1ezIipDHfo_CgLPODUqdeubWFl3hnH3K0/view?usp=sharing" target="blank">
