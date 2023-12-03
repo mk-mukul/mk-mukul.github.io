@@ -203,6 +203,12 @@ export default function AlgoTradnig() {
               <div onClick={()=>setCmdVarName("trade_type")}>
                 <Button name="Trade Type"/>
               </div>
+              <div onClick={()=>setCmdVarName("lot_qty")}>
+                <Button name="Lot Qty"/>
+              </div>
+              <div onClick={()=>setCmdVarName("loss_per_qty")}>
+                <Button name="Loss Per Qty"/>
+              </div>
             </>:<></>}
             <div onClick={()=>sendCommand("pause_now")}>
               <Button name="Pause"/>
@@ -213,7 +219,7 @@ export default function AlgoTradnig() {
           </div>
         </>:<></>}
 
-        {isUpdateTrade?<>
+        {isUpdateTrade && !cmdVarName?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
             <div onClick={()=>setCmdVarName("sl")}>
               <Button name="Stop Loss"/>
