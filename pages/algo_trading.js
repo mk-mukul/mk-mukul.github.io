@@ -196,7 +196,7 @@ export default function AlgoTradnig() {
 
         {isUpdateStrategy && !cmdVarName?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-            {algo_id==="manual_trading"?<>
+            {algo_id==="manual_trading" || algo_id==="pop_trade"?<>
               <div onClick={()=>setCmdVarName("interval")}>
                 <Button name="Interval"/>
               </div>
