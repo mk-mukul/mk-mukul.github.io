@@ -259,10 +259,10 @@ export default function AlgoTradnig() {
           {cmdVarName==='trade_type'?<>
           <div className=" mt-1 border-[1px] border-textPrimary p-1 w-full gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
               <div onClick={()=>{let data={};data['trade_type']='BUY';sendCommand("change_value",data);}}>
-                <Button name="BUY"/>
+                <Button name="LONG"/>
               </div>
               <div onClick={()=>{let data={};data['trade_type']='SELL';sendCommand("change_value",data);}}>
-                <Button name="SELL"/>
+                <Button name="SHORT"/>
               </div>
               <div onClick={()=>{let data={};data['trade_type']='CLEAR';sendCommand("change_value",data);}}>
                 <Button name="CLEAR"/>
