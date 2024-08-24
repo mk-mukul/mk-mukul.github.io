@@ -47,18 +47,23 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
         </div>
         <div className=" max-w-lg opacity-90">
           <p>
-            I&apos;m Mukul Raj, Senior undergraduate at IIT
-            Gandhinagar. I have an interest in the fields of
+            I&apos;m Mukul Raj, Senior undergraduate at 
             {" "}
             <ParaLink
-              text="Software Development"
+              text="IIT Gandhinagar"
+              href="https://iitgn.ac.in/"
+            />
+            . I have an interest in the fields of
+            {" "}
+            <ParaLink
+              text="Cyber Security"
               href="#projects"
               notTarget={true}
             />
             {/* {", "} */}
             {" and "}
             <ParaLink
-              text="Cyber Security"
+              text="Finance"
               href="#projects"
               notTarget={true}
             />
