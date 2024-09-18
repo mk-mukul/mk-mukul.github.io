@@ -52,7 +52,7 @@ export default function AlgoTradnig() {
           setAlgoLogsData(data)
           setIsDataUpdate(prev=>prev=prev+1)
         })
-      }, 1000);
+      }, 10000);
     }
   },[algo_id, api_url]);
 
