@@ -24,7 +24,7 @@ const projects = [
   },
   {
     title: "Algorithmic Trading Application",
-    projectLink: "/algo_trading?algo_id=testing",
+    projectLink: "https://trading.mkmukul.com/algo_trading?algo_id=testing",
     img: {
       link: "/img/algotrading-result.png",
       alt: "algotrading-result",
@@ -40,7 +40,7 @@ const projects = [
     links: [
       {
         for: "website",
-        link: "/algo_trading?algo_id=testing"
+        link: "https://trading.mkmukul.com/algo_trading?algo_id=testing"
       },
     ],
   },
