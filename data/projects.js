@@ -28,10 +28,6 @@ const projects = [
     img: {
       link: "/img/algotrading-result.png",
       alt: "algotrading-result",
-      // link: "/img/algotrading-light.png",
-      // alt: "algotrading-light",
-      // link: "/img/algotrading-dark.png",
-      // alt: "algotrading-dark",
       width: 600,
       height: 360,
     },

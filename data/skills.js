@@ -8,12 +8,12 @@ const skills = [
     tools: "Python, Bash, Shell Scripting"
   },
   {
-    title: "Web Development",
-    tools: "JavaScript, Node.js, Express.js, React.js, Next.js, MongoDB"
+    title: "Cyber Security",
+    tools: "Kali Linux, Burp Suite, Nmap, Wireshark, Maltego, OWASP ZAP, Nikto"
   },
   {
-    title: "Cyber Security",
-    tools: "Linux, Node.js, Express.js, React.js, Next.js"
+    title: "Web Development",
+    tools: "JavaScript, Node.js, Express.js, React.js, Next.js, MongoDB"
   }
 ];
 
