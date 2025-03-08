@@ -42,36 +42,21 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
         <div className="">
           <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold opacity-[60%]">
             {/* I am Finance and Cybersecurity enthusiast. */}
-            I am a Software Developer.
+            I am a Software and DevOps Engineer.
           </h2>
         </div>
-        <div className=" max-w-lg opacity-90">
+        <div className=" max-w-[540px] opacity-90">
           <p>
-            I&apos;m Mukul Raj, Senior undergraduate at 
-            {" "}
-            <ParaLink
-              text="IIT Gandhinagar"
-              href="https://iitgn.ac.in/"
-            />
-            . I have an interest in the fields of
-            {" "}
-            <ParaLink
-              text="Cyber Security"
-              href="#projects"
-              notTarget={true}
-            />
-            {/* {", "} */}
-            {" and "}
-            <ParaLink
-              text="Finance"
-              href="#projects"
-              notTarget={true}
-            />
-            {/* <ParaLink
-              text="Finance"
-              href="#projects"
-              notTarget={true}
-            /> */}
+          I&apos;m Mukul Raj, a DevOps, Cloud & Software Engineer specializing in {" "}
+          <ParaLink
+            text="AWS"
+            href="https://aws.amazon.com/what-is-aws/"
+          />, {" "}
+          <ParaLink
+            text="GitLab CI/CD"
+            href="https://about.gitlab.com/"
+          />, {" "}
+          and automation.          
           </p>
         </div>
         <a className=" mt-10" href="https://drive.google.com/file/d/1ezIipDHfo_CgLPODUqdeubWFl3hnH3K0/view?usp=sharing" target="blank">
@@ -81,7 +66,7 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
 
       <section
         id="about"
-        className="mx-auto py-[75px] md:py-[100px] flex flex-col justify-center items-start max-w-[900px]"
+        className="mx-auto py-[75px] md:py-[100px] flex flex-col justify-center items-start max-w-[1200px]"
       >
         <div className="flex w-full pb-10">
           <h1 className=" text-2xl md:text-3xl font-bold">
@@ -97,36 +82,42 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] md:gap-[10px] lg:gap-[50px] w-full">
           <div className=" opacity-90">
             <p>
-              Hello&#33; My name is Mukul, and I enjoy working with
-              technologies. My interest in tech started back in 2009 when I
-              had my first computer. I installed and played many computer
-              games and learned a lot about computers.
+              Hello! My name is <b>Mukul</b>, and I&apos;m passionate about <b>DevOps</b>, <b>Cloud Engineering</b>, and <b>Automation</b>. My journey into tech started back in 2009 when I got my first computer. I explored software, played games, and learned about system configurations, which sparked my deep interest in technology.
             </p>
             <br />
             <p>
-              Fast-forward to today. Currently, I&apos;m doing B Tech in{" "}
-              <b>Civil Engineering</b> with minor in <b>Computer Science</b>{" "}
-              from{" "}
+              Fast-forward to today, I have completed my B.Tech from {" "}
               <ParaLink
                 text="IIT Gandhinagar"
                 href="https://iitgn.ac.in/"
               />
-              . My main focus these days is learning new skills and making
-              something out of them.
+              . Currently, I&apos;m working as a <b>Senior Software Engineer</b> at {" "}
+              <ParaLink
+                text="KPIT Technologies"
+                href="https://www.kpit.com/"
+              />
+              , where I manage GitLab CI/CD pipelines, AWS infrastructure, and cloud automation.
             </p>
             <br />
             <div>
               <p className=" mt-2">
                 Here are few technologies I&apos;ve worked with -{" "}
               </p>
-              <ul className="grid grid-cols-3 font-fira font-bold gap-2 pt-3 text-xs">
+              <ul className="font-fira pt-3 text-xs">
                 {skills.map((val, ind) => {
                   return (
-                    <li key={ind} className="flex">
+                    <li key={ind} className="flex mt-1">
                       <span className=" pt-[3px] pr-1 text-textSecondary">
                         <FiChevronRight />
                       </span>
-                      {val}
+                      <div className="lg:flex w-full">
+                        <div className="text-textSecondary min-w-[120px] font-bold">
+                          {val.title}: 
+                        </div>
+                        <div className="">
+                          {val.tools}
+                        </div>
+                      </div>
                     </li>
                   );
                 })}
@@ -193,9 +184,8 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
           ></div>
         </div>
         <p className=" opacity-90 w-full text-center">
-          Have any projects in mind or want to discuss any things? My inbox
-          is always open whether you have a question or just want to say hi.
-          I&apos;ll try my best to get back to you&#33;
+          Have any projects in mind or want to discuss any things?
+          I&apos;m always open to collaborations, freelance projects, and remote work opportunities. Let&apos;s build something amazing together&#33;
         </p>
         <div className="flex justify-center w-full py-14">
           <a
