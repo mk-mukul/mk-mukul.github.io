@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useRef, useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import Logo from "./Logo";
+import { userDetails } from "../utils/api";
 
 const Navbar = ({ themes, theme, setTheme }) => {
   const changeTheme = () => {
@@ -22,6 +23,23 @@ const Navbar = ({ themes, theme, setTheme }) => {
   const [toggleMenuIcon, setToggleMenuIcon] = useState("");
   const [toggleLogo, setToggleLogo] = useState("");
   const [navShadow, setNavShadow] = useState("");
+  const [userName, setUserName] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const data = await userDetails();
+        setUserName(data.user_name);
+      } catch (err) {
+        console.error('User fetch failed:', err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchUser();
+  }, []);
+
   useEffect(() => {
     let lastScroll = window.scrollY;
     window.addEventListener("scroll", () => {
@@ -120,6 +138,18 @@ const Navbar = ({ themes, theme, setTheme }) => {
                   <span className=" font-fira text-textSecondary">04.</span>
                   <ThemeName theme={theme} themes={themes} />
                 </a>
+              </li>
+              <li className=" w-full">
+                  <a
+                    {...(!loading && !userName && {
+                      href: process.env.NEXT_PUBLIC_AUTH_BASE_URL,
+                      target: "_blank",
+                      rel: "noopener noreferrer"
+                    })}
+                    className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
+                    <span className=" font-fira text-textSecondary">05.</span>
+                    { loading?"loading...": userName || "Login" }
+                  </a>
               </li>
             </ul>
           </div>
