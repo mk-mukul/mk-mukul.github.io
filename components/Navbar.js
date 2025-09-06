@@ -25,6 +25,19 @@ const Navbar = ({ themes, theme, setTheme }) => {
   const [navShadow, setNavShadow] = useState("");
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(true);
+  const [loginUrl, setLoginUrl] = useState("");
+
+  useEffect(() => {
+    const authBaseUrl = process.env.NEXT_PUBLIC_AUTH_BASE_URL;
+    const currentUrl = window.location.href;
+    if (userName){
+      const url = `${authBaseUrl}?redirect_uri=${encodeURIComponent(currentUrl)}`;
+      setLoginUrl(url);
+    } else {
+      const url = `${authBaseUrl}/signin?redirect_uri=${encodeURIComponent(currentUrl)}`;
+      setLoginUrl(url);
+    }
+  }, [userName]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -141,9 +154,9 @@ const Navbar = ({ themes, theme, setTheme }) => {
               </li>
               <li className=" w-full">
                   <a
-                    {...(!loading && !userName && {
-                      href: process.env.NEXT_PUBLIC_AUTH_BASE_URL,
-                      target: "_blank",
+                    {...(!loading && {
+                      href: `${loginUrl || "#"}`,
+                      target: "_self",
                       rel: "noopener noreferrer"
                     })}
                     className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
