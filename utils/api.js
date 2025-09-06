@@ -7,6 +7,7 @@ export const userDetails = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include',
   });
 
   const data = await response.json();
@@ -24,6 +25,7 @@ export const verifyToken = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include',
   });
 
   const data = await response.json();
