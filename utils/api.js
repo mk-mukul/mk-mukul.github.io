@@ -16,7 +16,7 @@ export const userDetails = async () => {
     throw new Error(data.error);
   }
   
-  return data;
+  return data.data;
 };
 
 export const verifyToken = async () => {
