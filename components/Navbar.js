@@ -43,7 +43,7 @@ const Navbar = ({ themes, theme, setTheme }) => {
     const fetchUser = async () => {
       try {
         const data = await userDetails();
-        setUserName(data.user_name);
+        setUserName(data.username);
       } catch (err) {
         console.error('User fetch failed:', err.message);
       } finally {

@@ -2,7 +2,7 @@
 const API_BASE_URL = `${process.env.NEXT_PUBLIC_AUTH_BASE_URL}/api`
 
 export const userDetails = async () => {
-  const response = await fetch(`${API_BASE_URL}/user-details`, {
+  const response = await fetch(`${API_BASE_URL}/user`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export const userDetails = async () => {
 };
 
 export const verifyToken = async () => {
-  const response = await fetch(`${API_BASE_URL}/verify-token`, {
+  const response = await fetch(`${API_BASE_URL}/verify`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
