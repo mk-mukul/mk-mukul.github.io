@@ -2,7 +2,7 @@
 const API_BASE_URL = `${process.env.NEXT_PUBLIC_AUTH_BASE_URL}/api`
 
 export const userDetails = async () => {
-  const response = await fetch(`${API_BASE_URL}/user`, {
+  const response = await fetch(`${API_BASE_URL}/profile`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
