@@ -34,7 +34,7 @@ const Navbar = ({ themes, theme, setTheme }) => {
       const url = `${authBaseUrl}?redirect_uri=${encodeURIComponent(currentUrl)}`;
       setLoginUrl(url);
     } else {
-      const url = `${authBaseUrl}/signin?redirect_uri=${encodeURIComponent(currentUrl)}`;
+      const url = `${authBaseUrl}/login?redirect_uri=${encodeURIComponent(currentUrl)}`;
       setLoginUrl(url);
     }
   }, [userName]);
