@@ -93,10 +93,8 @@ const Navbar = ({ themes, theme, setTheme }) => {
       >
         <nav className="nav py-[5px] min-h-[60px] md:py-[8px] flex justify-between items-center">
           <div className={` transition-all ${toggleLogo}`}>
-            <Link href={"/"}>
-              <a className="">
-                <Logo className=" w-[60px]" color={"fill-textSecondary"} />
-              </a>
+            <Link href="/" className="">
+              <Logo className=" w-[60px]" color={"fill-textSecondary"} />
             </Link>
           </div>
 
@@ -117,27 +115,21 @@ const Navbar = ({ themes, theme, setTheme }) => {
             <FiX className=" absolute md:hidden text-textSecondary top-3 right-3 text-5xl" />
             <ul className="flex gap-4 p-5 md:p-0 md:gap-0 justify-center h-full text-base md:text-sm items-center md:space-x-3 flex-col md:flex-row">
               <li className=" w-full">
-                <Link href={"/#about"}>
-                  <a className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
-                    <span className=" font-fira text-textSecondary">01.</span>
-                    About
-                  </a>
+                <Link href="/#about" className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
+                  <span className=" font-fira text-textSecondary">01.</span>
+                  About
                 </Link>
               </li>
               <li className=" w-full">
-                <Link href={"/#projects"}>
-                  <a className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
-                    <span className=" font-fira text-textSecondary">02.</span>
-                    Projects
-                  </a>
+                <Link href="/#projects" className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
+                  <span className=" font-fira text-textSecondary">02.</span>
+                  Projects
                 </Link>
               </li>
               <li className=" w-full">
-                <Link href={"/#contact"}>
-                  <a className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
-                    <span className=" font-fira text-textSecondary">03.</span>
-                    Contact
-                  </a>
+                <Link href="/#contact" className=" flex gap-1 cursor-pointer hover:text-textSecondary px-2 py-3 md:py-1 justify-center w-full md:w-max">
+                  <span className=" font-fira text-textSecondary">03.</span>
+                  Contact
                 </Link>
               </li>
               <li className=" w-full">
