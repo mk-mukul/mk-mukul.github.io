@@ -1,5 +1,35 @@
-
 const projects = [
+  {
+    title: "Algorithmic Trading Application",
+    projectLink: "https://trading.mkmukul.com",
+    img: {
+      link: "/img/trading-dark.png",
+      alt: "algotrading-result",
+      width: 600,
+      height: 360,
+    },
+    desc: [
+      "A production-grade algorithmic trading platform with 5+ microservices, handling real-time market data ingestion and automated trade execution — live at trading.mkmukul.com.",
+      "Built with Python FastAPI and Node.js, using Redis for real-time pub/sub messaging and caching, and MongoDB for persistent trade history and market data.",
+      "Features RBAC authentication, Upstox API integration for real-time market feeds, Google Sheets trade logging for audit trails, and fully automated deployment via GitHub Actions CI/CD to a VPS behind NGINX reverse proxy.",
+    ],
+    tech: [
+      "Python",
+      "FastAPI",
+      "Node.js",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "GitHub Actions",
+      "NGINX",
+    ],
+    links: [
+      {
+        for: "website",
+        link: "https://trading.mkmukul.com",
+      },
+    ],
+  },
   {
     title: "Alpha Chat",
     projectLink: "https://mk-mukul.github.io/website_alpha/",
@@ -9,70 +39,28 @@ const projects = [
       width: 600,
       height: 320,
     },
-    desc: ["A web app for real time texting. Make an account, add friends in your friend list, and start chatting with your friends on this platform.", "Features - Live Typing, Online status, Last seen, Sound notification"],
-    tech: ["MongoDB", "Express", "React", "TailwindCSS", "Socket.io"],
+    desc: [
+      "A full-stack real-time chat application with JWT-based authentication, live typing indicators, message read receipts, and persistent chat history.",
+      "Deployed on a VPS with NGINX as a reverse proxy, handling routing and SSL termination.",
+      "Features — Live Typing, Online Status, Last Seen, Sound Notifications, Friend List Management.",
+    ],
+    tech: [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "TailwindCSS",
+      "Socket.io",
+      "JWT",
+      "NGINX",
+    ],
     links: [
       {
         for: "github",
-        link: "https://github.com/mk-mukul/website_alpha"
+        link: "https://github.com/mk-mukul/website_alpha",
       },
       {
         for: "website",
-        link: "https://mk-mukul.github.io/website_alpha/"
-      },
-    ],
-  },
-  {
-    title: "Algorithmic Trading Application",
-    projectLink: "https://trading.mkmukul.com/algo/logs/",
-    img: {
-      link: "/img/algotrading-result.png",
-      alt: "algotrading-result",
-      width: 600,
-      height: 360,
-    },
-    desc: ["Python-based algorithmic trading application to monitor and trade on real-time market.", "Incorporated historical data strategy backtesting using the Upstox API.", "Integrated trade record functionality in Google Sheets."],
-    tech: ["Python", "Node.js", "Technical Analysis", "Backtesting", "Data Visualization", "TA-Lib"],
-    links: [
-      {
-        for: "website",
-        link: "https://trading.mkmukul.com/algo/logs/"
-      },
-    ],
-  },
-  {
-    title: "Metis Summer Project",
-    projectLink: "https://github.com/mk-mukul/WD-GP-32",
-    img: {
-      link: "/img/metis.png",
-      alt: "metis website",
-      width: 600,
-      height: 350,
-    },
-    desc: ["Website for Metis club ( Coding ) of IIT Gandhinagar. The admin can provide different online resources, announcements for workshops and events, and projects created under Metis.", "A group effort went into creating this website. Group Members - Mukul, Prakriti, Sukanya"],
-    tech: ["MongoDB", "Express", "Googleapis", "Bootstrap", "Strapi"],
-    links: [
-      {
-        for: "github",
-        link: "https://github.com/mk-mukul/WD-GP-32"
-      },
-    ],
-  },
-  {
-    title: "SHOPPILY",
-    projectLink: "https://github.com/mk-mukul/shoppily",
-    img: {
-      link: "/img/shoppily.png",
-      alt: "shoppily",
-      width: 600,
-      height: 550,
-    },
-    desc: ["SHOPPILY is UI design of a online shopping app coded in REACT NATIVE"],
-    tech: ["React-Native", "Javascript", "Figma", "Android-Studio"],
-    links: [
-      {
-        for: "github",
-        link: "https://github.com/mk-mukul/shoppily"
+        link: "https://mk-mukul.github.io/website_alpha/",
       },
     ],
   },
@@ -85,19 +73,48 @@ const projects = [
       width: 600,
       height: 330,
     },
-    desc: ["A website for IITGN Btech-20 student, used as a Time Table, collection of online classes links and resources.", "During online mode, nearly 200 people visit this site daily."],
-    tech: ["MongoDB", "Express", "React", "TailwindCSS"],
+    desc: [
+      "A website for IIT Gandhinagar BTech-20 students serving as a timetable, collection of online class links, and academic resources hub.",
+      "During online mode, nearly 200 students visited the site daily — built and maintained entirely as a solo project.",
+    ],
+    tech: ["MongoDB", "Express.js", "React.js", "TailwindCSS"],
     links: [
       {
         for: "github",
-        link: "https://github.com/mk-mukul/btech20-iitgn"
+        link: "https://github.com/mk-mukul/btech20-iitgn",
       },
       {
         for: "website",
-        link: "https://mk-mukul.github.io/btech20-iitgn/"
+        link: "https://mk-mukul.github.io/btech20-iitgn/",
       },
     ],
   },
-]
+  {
+    title: "Security and Automation Tools",
+    projectLink: "/img/security-assessment.png",
+    img: {
+      link: "/img/security-assessment.png",
+      alt: "security assessment",
+      width: 600,
+      height: 320,
+    },
+    desc: [
+      "Developed Linux automation scripts for vulnerability assessment and system hardening at IIT Gandhinagar, assigned officially by the institution to assess campus network security.",
+      "Integrated Nmap, OWASP ZAP, and Wireshark into repeatable automated workflows for reconnaissance, port scanning, and traffic analysis.",
+      "Identified vulnerabilities in the college network infrastructure and websites, and presented findings at the IIT Gandhinagar UG Poster Presentation.",
+    ],
+    tech: ["Linux", "Bash", "Nmap", "OWASP ZAP", "Wireshark", "Kali Linux"],
+    links: [
+      {
+        for: "github",
+        link: "https://github.com/mk-mukul/scripts",
+      },
+      {
+        for: "website",
+        link: "/img/security-assessment.png",
+      },
+    ],
+  },
+];
 
 export default projects;

@@ -3,6 +3,7 @@ import { FiLinkedin, FiGithub, FiInstagram, FiTwitter } from "react-icons/fi";
 import ParaLink from "./ParaLink";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <div className=" font-mono px-4 md:px-8 lg:px-12  py-6">
       <div className=" w-full md:w-10 md:fixed bottom-0 left-5 lg:left-10 right-auto flex flex-col opacity-80">
@@ -62,13 +63,13 @@ const Footer = () => {
         ></div>
         <div className="flex flex-col relative items-center my-5">
           <a
-            href="mailto:mukul.raj@iitgn.ac.in"
+            href="mailto:mukul@mkmukul.com"
             target="_blank"
             rel="noreferrer"
             className={` font-mono py-[8px] transition-all hover:text-textSecondary hover:translate-y-[-5px] px-2.5`}
             style={{ writingMode: "vertical-lr", letterSpacing: "1px" }}
           >
-            mukul.raj@iitgn.ac.in
+            mukul@mkmukul.com
           </a>
         </div>
         <div
@@ -85,7 +86,8 @@ const Footer = () => {
             <ParaLink text="TailwindCSS" href="https://tailwindcss.com/" />
           </p>
           <p className="flex">
-            Copyright<span className="px-1.5 font-inter">&copy;</span> 2025 Mukul Raj
+            Copyright<span className="px-1.5 font-inter">&copy;</span>{" "}
+            {currentYear} Mukul Raj
           </p>
         </div>
       </footer>

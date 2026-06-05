@@ -41,25 +41,55 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
         </div>
         <div className="">
           <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold opacity-[60%]">
-            {/* I am Finance and Cybersecurity enthusiast. */}
-            I am a Software and DevOps Engineer.
+            I build software and own it all the way to production.
           </h2>
         </div>
         <div className=" max-w-[540px] opacity-90">
           <p>
-          I&apos;m Mukul Raj, a DevOps, Cloud & Software Engineer specializing in {" "}
-          <ParaLink
-            text="AWS"
-            href="https://aws.amazon.com/what-is-aws/"
-          />, {" "}
-          <ParaLink
-            text="GitLab CI/CD"
-            href="https://about.gitlab.com/"
-          />, {" "}
-          and automation.          
+            I&apos;m a Software and DevOps Engineer with hands-on experience
+            building production-grade backend systems and microservice
+            architectures — and managing the infrastructure they run on. I work
+            across the full stack, from designing APIs in Python and Node.js to
+            deploying on
+            <span>
+              {" "}
+              <ParaLink
+                text="Kubernetes"
+                href="https://kubernetes.io/docs/concepts/overview/"
+              />{" "}
+            </span>
+            and
+            <span>
+              {" "}
+              <ParaLink
+                text="AWS"
+                href="https://aws.amazon.com/what-is-aws/"
+              />{" "}
+            </span>
+            using
+            <span>
+              {" "}
+              <ParaLink
+                text="Terraform"
+                href="https://developer.hashicorp.com/terraform"
+              />{" "}
+            </span>
+            and
+            <span>
+              {" "}
+              <ParaLink
+                text="ArgoCD"
+                href="https://argo-cd.readthedocs.io/en/stable/"
+              />{" "}
+            </span>
+            .
           </p>
         </div>
-        <a className=" mt-10" href="https://drive.google.com/file/d/1ezIipDHfo_CgLPODUqdeubWFl3hnH3K0/view?usp=sharing" target="blank">
+        <a
+          className=" mt-10"
+          href="https://drive.google.com/file/d/1ezIipDHfo_CgLPODUqdeubWFl3hnH3K0/view?usp=sharing"
+          target="blank"
+        >
           <Button name="Resume" />
         </a>
       </section>
@@ -82,21 +112,29 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] md:gap-[10px] lg:gap-[50px] w-full">
           <div className=" opacity-90">
             <p>
-              Hello! My name is <b>Mukul</b>, and I&apos;m passionate about <b>DevOps</b>, <b>Cloud Engineering</b>, and <b>Automation</b>. My journey into tech started back in 2009 when I got my first computer. I explored software, played games, and learned about system configurations, which sparked my deep interest in technology.
+              Hello! My name is <b>Mukul</b>, and I'm passionate about{" "}
+              <b>software engineering</b>, <b>DevOps</b>, and{" "}
+              <b>building things that work in production</b>. My journey into
+              tech started back in 2009 when I got my first computer. I explored
+              software, played games, and learned about system configurations —
+              which sparked a curiosity about how technology works under the
+              hood that never really went away.
             </p>
             <br />
             <p>
-              Fast-forward to today, I have completed my B.Tech from {" "}
-              <ParaLink
-                text="IIT Gandhinagar"
-                href="https://iitgn.ac.in/"
-              />
-              . Currently, I&apos;m working as a <b>Senior Software Engineer</b> at {" "}
-              <ParaLink
-                text="KPIT Technologies"
-                href="https://www.kpit.com/"
-              />
-              , where I manage GitLab CI/CD pipelines, AWS infrastructure, and cloud automation.
+              Fast-forward to today, I have completed my B.Tech from
+              <span>
+                {" "}
+                <ParaLink text="IIT Gandhinagar" href="https://iitgn.ac.in/" />
+                {". "}
+              </span>
+              I work as a <b>Software and DevOps Engineer</b>, building
+              production-grade backend systems and managing the infrastructure
+              they run on — from designing microservices in Python and Node.js
+              to deploying on Kubernetes and AWS. Outside of work, I'm drawn to{" "}
+              <b>finance</b>, <b>algorithmic trading</b>, and <b>geopolitics</b>{" "}
+              — I find that understanding the bigger picture makes me a more
+              thoughtful engineer.
             </p>
             <br />
             <div>
@@ -112,11 +150,9 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
                       </span>
                       <div className="lg:flex w-full">
                         <div className="text-textSecondary min-w-[120px] font-bold">
-                          {val.title}: 
+                          {val.title}:
                         </div>
-                        <div className="">
-                          {val.tools}
-                        </div>
+                        <div className="">{val.tools}</div>
                       </div>
                     </li>
                   );
@@ -152,9 +188,7 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
       >
         <div className="flex w-full pb-10">
           <h1 className=" text-2xl md:text-3xl font-bold">
-            <span className=" text-textSecondary font-fira text-xl">
-              02.
-            </span>{" "}
+            <span className=" text-textSecondary font-fira text-xl">02.</span>{" "}
             Some Projects I&apos;ve Built
           </h1>
           <div
@@ -184,12 +218,15 @@ export default function Home({ skills, theme, themes, projects, setTheme }) {
           ></div>
         </div>
         <p className=" opacity-90 w-full text-center">
-          Have any projects in mind or want to discuss any things?
-          I&apos;m always open to collaborations, freelance projects, and remote work opportunities. Let&apos;s build something amazing together&#33;
+          Have a project in mind, an infrastructure problem to solve, or just
+          want to talk tech? I&apos;m open to freelance projects, remote work
+          opportunities, and interesting collaborations — whether it's building
+          backend systems, setting up DevOps pipelines, or anything in between.
+          Let&apos;s build something great together&#33;
         </p>
         <div className="flex justify-center w-full py-14">
           <a
-            href="mailto:mukul.raj@iitgn.ac.in"
+            href="mailto:mukul@mkmukul.com"
             target="_blank"
             rel="noopener noreferrer"
           >

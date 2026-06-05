@@ -1,20 +1,21 @@
 const skills = [
   {
     title: "Cloud & DevOps",
-    tools: "AWS, GitLab CI/CD, Terraform, Docker, Kubernetes"
+    tools:
+      "AWS, GitLab CI/CD, GitHub Actions, ArgoCD, Argo Rollouts, Docker, Kubernetes, Terraform",
   },
   {
-    title: "Automation",
-    tools: "Python, Bash, Shell Scripting"
+    title: "Backend & APIs",
+    tools:
+      "Python, FastAPI, Node.js, Express.js, REST APIs, Microservices, Socket.io",
   },
+  { title: "Databases", tools: "MongoDB, PostgreSQL, Redis, Qdrant" },
+  { title: "Monitoring", tools: "Grafana, Prometheus" },
   {
-    title: "Cyber Security",
-    tools: "Kali Linux, Burp Suite, Nmap, Wireshark, Maltego, OWASP ZAP, Nikto"
+    title: "Security",
+    tools: "Linux, NGINX, Burp Suite, Nmap, Wireshark, OWASP ZAP, Kali Linux",
   },
-  {
-    title: "Web Development",
-    tools: "JavaScript, Node.js, Express.js, React.js, Next.js, MongoDB"
-  }
+  { title: "Languages", tools: "Python, JavaScript, TypeScript, Bash" },
 ];
 
 export default skills;
